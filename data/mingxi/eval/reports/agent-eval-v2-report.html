@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
+<title>明晰 Agent Eval v2</title>
+<style>
+:root{--bg:#f3efe6;--card:#fffcf7;--ink:#1a1f18;--ok:#1a4f3c;--bad:#8f3a2c;--line:#d2cdc0;--mute:#5c6358}
+body{font-family:"Source Sans 3",system-ui,sans-serif;background:radial-gradient(ellipse at 10% 0,#cfe8d855,transparent),var(--bg);color:var(--ink);margin:0;padding:2rem;line-height:1.55}
+h1{font-family:Georgia,"Songti SC",serif;font-size:1.9rem;margin:0 0 .35rem}
+.lede{color:var(--mute);max-width:42rem}
+.banner{display:inline-block;padding:.35rem .8rem;border-radius:999px;font-weight:700;margin:1rem 0}
+.banner.ok{background:#d9efe4;color:var(--ok)}.banner.bad{background:#f3d7d0;color:var(--bad)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.65rem;margin:1rem 0}
+.m{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.85rem;text-align:center}
+.m b{display:block;font-size:1.2rem}.m span{font-size:.75rem;color:var(--mute)}
+table{width:100%;border-collapse:collapse;background:var(--card);margin:1rem 0;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:#e7f0ea} code{font-size:.82rem}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0}
+</style></head><body>
+<h1>明晰 Agent Eval v2</h1>
+<p class="lede">最佳产品评测方案（已冻结）· <code>docs/mingxi/20-agent-eval-scheme-v2.md</code><br/>
+dataset <code>2026.08.04-silver-v2.1-rebalanced</code> · 2026-08-04T15:16:52.399Z</p>
+<div class="banner bad">总门禁 FAIL</div>
+<div class="grid">
+  <div class="m"><b class="ok">PASS</b><span>M-Safe 护栏</span></div>
+  <div class="m"><b>100%</b><span>M-Script 剧本</span></div>
+  <div class="m"><b>100.0%</b><span>M-C1 领域</span></div>
+  <div class="m"><b>66.7%</b><span>M-C4 极性</span></div>
+  <div class="m"><b>30.0%</b><span>R-C2 用途（参考）</span></div>
+  <div class="m"><b>1</b><span>极性翻转</span></div>
+</div>
+<div class="box">
+<h2>分层状态</h2>
+<table>
+<tr><th>层</th><th>状态</th><th>说明</th></tr>
+<tr><td>P0 护栏</td><td>PASS</td><td>确认门 / citation / stance</td></tr>
+<tr><td>P1 理解</td><td>reused · gate fail/skip</td><td>C1/C4；C2 仅参考</td></tr>
+<tr><td>P3 剧本</td><td>PASS</td><td>种卡 + 断言 · Agent 主战场</td></tr>
+<tr><td>P4 体验</td><td>not_run</td><td>Rubric/pairwise 可选</td></tr>
+</table>
+</div>
+<div class="box">
+<h2>仓库路径索引</h2>
+<table>
+<tr><th>用途</th><th>路径</th></tr>
+<tr><td>方案权威</td><td><code>docs/mingxi/20-agent-eval-scheme-v2.md</code></td></tr>
+<tr><td>评测 README</td><td><code>data/mingxi/eval/README.md</code></td></tr>
+<tr><td>剧本 scenarios</td><td><code>data/mingxi/eval/scenarios/</code></td></tr>
+<tr><td>银标 gold</td><td><code>data/mingxi/eval/gold/</code></td></tr>
+<tr><td>P1 runner</td><td><code>scripts/mingxi/run-intent-eval.mjs</code></td></tr>
+<tr><td>P3 runner</td><td><code>scripts/mingxi/run-agent-scripts.mjs</code></td></tr>
+<tr><td>总控</td><td><code>scripts/mingxi/run-eval-v2.mjs</code></td></tr>
+<tr><td>本报告 HTML</td><td><code>data/mingxi/eval/reports/agent-eval-v2-report.html</code></td></tr>
+<tr><td>P1 报告</td><td><code>data/mingxi/eval/reports/intent-agent-report.html</code></td></tr>
+<tr><td>P3 报告</td><td><code>data/mingxi/eval/reports/agent-scripts-report.html</code></td></tr>
+</table>
+</div>
+<p class="lede">命令：<code>npm run test:mingxi:eval-v2</code></p>
+</body></html>

@@ -1,0 +1,132 @@
+{
+  "cardId": "real_obs_00_收件箱_营业执照信息抽取_实验分析报告",
+  "corpusId": "obs_00_收件箱_营业执照信息抽取_实验分析报告",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "计算机视觉",
+      "文档识别"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure",
+      "clip"
+    ],
+    "polarity": "mixed",
+    "userGoals": [
+      "learn",
+      "avoid"
+    ],
+    "purposeLabel": "待定",
+    "stance": "do_not_imitate_failure_path",
+    "actionIntents": [
+      "extract_lesson",
+      "tag_warning",
+      "create_checklist"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.计算机视觉.文档识别",
+        "label": "文档识别",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "计算机视觉",
+          "文档识别"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "mixed",
+      "confidence": 0.9,
+      "signals": [
+        "失败",
+        "有效",
+        "整图退化",
+        "模型弱点",
+        "误读",
+        "银标低估",
+        "真实指标更高"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_lesson",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "tag_warning",
+        "priority": 2,
+        "autoEligible": true
+      },
+      {
+        "id": "create_checklist",
+        "priority": 3,
+        "autoEligible": true
+      }
+    ],
+    "stance": "do_not_imitate_failure_path",
+    "purposeSuggestion": "待定",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "在营业执照识别任务中，Qwen3-VL-8B模型整体表现良好（F1达0.948），但存在整图退化和信用代码误读等关键失败点，且当前银标GT低估了真实性能，需人工gold定稿后重评。",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "待定",
+    "casePolarity": "mixed",
+    "functionalForm": "经验帖",
+    "stance": "do_not_imitate_failure_path",
+    "userGoalText": "learn,avoid",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:27:21.234Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "manual_rebalance_seed_20260804",
+    "purposeRebalance": {
+      "from": "反例避坑",
+      "to": "待定",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    }
+  }
+}

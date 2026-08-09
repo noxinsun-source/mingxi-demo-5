@@ -1,0 +1,120 @@
+{
+  "cardId": "real_xhs_shot_rag_bm25_insight",
+  "corpusId": "xhs_shot_rag_bm25_insight",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "自然语言处理",
+      "信息检索"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn",
+      "avoid"
+    ],
+    "purposeLabel": "对标拆解",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.自然语言处理.信息检索",
+        "label": "信息检索",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "自然语言处理",
+          "信息检索"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.9,
+      "signals": [
+        "稳健默认选择",
+        "无需大模型参与",
+        "准确率优于随机方法",
+        "可与大模型结合",
+        "成本可控",
+        "可复用"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "对标拆解",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "在企业级RAG系统中，BM25作为稳健、低成本的检索方法，仍是大规模场景下的默认选择，可与大模型结合提升效果。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "对标拆解",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn,avoid",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:27:02.256Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "manual_rebalance_seed_20260804",
+    "purposeRebalance": {
+      "from": "反例避坑",
+      "to": "对标拆解",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    }
+  }
+}

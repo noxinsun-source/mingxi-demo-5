@@ -1,0 +1,22 @@
+{
+  "id": "S6-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S6_locked_reline",
+  "title": "锁定节点后重排保持不变",
+  "corpus": {
+    "poolCardIds": [
+      "real_pk_Agentic_Harness_Engineering",
+      "real_csdn_162008414",
+      "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "real_web_pep8"
+    ]
+  },
+  "utterance": "按反对意见优先重排",
+  "lockFirstThemeNode": true,
+  "assertions": [
+    { "type": "intent_in", "values": ["reline"] },
+    { "type": "line_min_nodes", "n": 2 },
+    { "type": "locked_kept" },
+    { "type": "awaiting_approval" }
+  ]
+}

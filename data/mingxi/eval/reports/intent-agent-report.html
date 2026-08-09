@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<title>明晰 Intent Agent 评测报告</title>
+<style>
+  :root{--bg:#f4f1ea;--card:#fffcf7;--ink:#1a1f18;--muted:#5c6358;--ok:#1a4f3c;--bad:#8f3a2c;--line:#d2cdc0}
+  body{font-family:"Source Sans 3",system-ui,sans-serif;background:radial-gradient(ellipse at 0 0,#d8eee455,transparent),var(--bg);color:var(--ink);margin:0;padding:2rem;line-height:1.55}
+  h1{font-family:Georgia,serif;font-size:1.85rem;margin:0 0 .4rem}
+  .lede{color:var(--muted);max-width:40rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.6rem;margin:1.2rem 0}
+  .m{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.8rem;text-align:center}
+  .m b{display:block;font-size:1.25rem;color:var(--ok)}
+  .m span{font-size:.75rem;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;background:var(--card);margin:1rem 0;font-size:.9rem}
+  th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+  th{background:#e7f0ea}
+  .ok{color:var(--ok)} .bad{color:var(--bad);font-weight:700}
+  code{font-family:ui-monospace,monospace;font-size:.82rem}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1rem;margin:1rem 0}
+</style>
+</head>
+<body>
+  <h1>明晰 P1 理解层评测报告</h1>
+  <p class="lede">Eval v2 · dataset <code>2026.08.04-silver-v2.1-rebalanced</code> · 方案 <code>docs/mingxi/20-agent-eval-scheme-v2.md</code> · 生成于 2026-08-04T15:05:08.914Z。<strong>C2 用途仅参考，不进门禁。</strong></p>
+
+  <div class="box">
+    <h2>路径索引（仓库内）</h2>
+    <table><tr><th>agentCode</th><td><code>lib/mingxi/intent/</code></td></tr><tr><th>agentCore</th><td><code>lib/mingxi/intent/agent-core.ts</code></td></tr><tr><th>classifier</th><td><code>lib/mingxi/intent/classifier.ts</code></td></tr><tr><th>orchestrator</th><td><code>lib/mingxi/agent/orchestrator.ts</code></td></tr><tr><th>engine</th><td><code>lib/mingxi/engine/</code></td></tr><tr><th>realDataset</th><td><code>data/mingxi/real/latest-cards.json</code></td></tr><tr><th>silverGold</th><td><code>data/mingxi/eval/gold/</code></td></tr><tr><th>silverManifest</th><td><code>data/mingxi/eval/silver-manifest.json</code></td></tr><tr><th>vocab</th><td><code>data/mingxi/eval/vocab/</code></td></tr><tr><th>reportHtml</th><td><code>data/mingxi/eval/reports/intent-agent-report.html</code></td></tr><tr><th>reportJson</th><td><code>data/mingxi/eval/reports/intent-agent-report.json</code></td></tr><tr><th>schemeDocs</th><td><code>docs/mingxi/20-agent-eval-scheme-v2.md</code><br><code>docs/mingxi/10-intent-scheme-v3.md</code><br><code>docs/mingxi/11-eval-and-dataset-master.md</code></td></tr></table>
+    <p>银标模型：<code>Qwen/Qwen3-VL-32B-Instruct</code><br/>
+    被测 Agent 分类模型：<code>Qwen/Qwen2.5-7B-Instruct</code><br/>
+    P1 门禁：<strong class="bad">FAIL</strong></p>
+  </div>
+
+  <div class="grid">
+    <div class="m"><b>66.7%</b><span>C4 极性（门禁相关）</span></div>
+    <div class="m"><b>30.0%</b><span>C2 用途（仅参考）</span></div>
+    <div class="m"><b>100.0%</b><span>C1 Path@2</span></div>
+    <div class="m"><b>83.3%</b><span>L3 关键词（参考）</span></div>
+    <div class="m"><b>100.0%</b><span>确认门</span></div>
+    <div class="m"><b>100.0%</b><span>成件+凭据</span></div>
+    <div class="m"><b>1</b><span>正负极性对调数</span></div>
+    <div class="m"><b>60</b><span>银标样本量</span></div>
+  </div>
+
+  <div class="box">
+    <h2>红线</h2>
+    <ul><li class="ok">R1_stance: PASS</li><li class="ok">R2_confirm_gate: PASS</li><li class="ok">R4_citations: PASS</li></ul>
+  </div>
+
+  <h2>指标表</h2>
+  <table><tr><th>指标</th><th>值</th></tr><tr><td>L1_path2</td><td><strong>100.0%</strong></td></tr><tr><td>L2_polarity</td><td><strong>66.7%</strong></td></tr><tr><td>L2_purpose_reference</td><td><strong>30.0%</strong></td></tr><tr><td>L2_stance</td><td><strong>71.7%</strong></td></tr><tr><td>criticalFlip</td><td><strong>1</strong></td></tr><tr><td>gate_confirm</td><td><strong>100.0%</strong></td></tr><tr><td>organize</td><td><strong>100.0%</strong></td></tr><tr><td>L3_dialog</td><td><strong>83.3%</strong></td></tr><tr><td>retrieveSmoke</td><td><strong>5</strong></td></tr><tr><td>p1GatePass</td><td><strong>false</strong></td></tr></table>
+
+  <h2>样本对照（银标 vs Agent）</h2>
+  <table>
+    <tr><th>标题</th><th>银标 极性/用途</th><th>Agent 预测</th><th>领域 path</th></tr>
+    <tr>
+      <td>Agent Skill 入门与写作指南_skill文档</td>
+      <td>positive_exemplar / 素材金句</td>
+      <td>mixed / 学习理论</td>
+      <td>技术 / 人工智能 / Agent开发 / Skill设计</td>
+    </tr><tr>
+      <td>提示词工程：Agent落地的核心命脉，彻底掌控大模型输出的全体系方法论</td>
+      <td>negative_caution / 反例避坑</td>
+      <td>negative_caution / 反例避坑</td>
+      <td>人工智能 / 大模型应用 / 提示词工程 / Agent系统</td>
+    </tr><tr>
+      <td>大模型提示词工程高阶写法 + 实战避坑指南｜从入门 Prompt 到工业级结构化指令</td>
+      <td>mixed / 待定</td>
+      <td>mixed / 学习理论</td>
+      <td>人工智能 / 大模型应用 / 提示词工程 / 工业级指令设计</td>
+    </tr><tr>
+      <td>重新定义 AI 生产力：Agent Skills 全链路开发与实战指南</td>
+      <td>positive_exemplar / 对标拆解</td>
+      <td>mixed / 对标拆解</td>
+      <td>技术 / 人工智能 / AI Agent开发 / Skills开发</td>
+    </tr><tr>
+      <td>调查研究-178 Google 官方 Agent Skills 仓库解读：AI Agent 时代，知识正在从「提示词」变成「可安装能力包」</td>
+      <td>positive_exemplar / 对标拆解</td>
+      <td>mixed / 对标拆解</td>
+      <td>技术 / 人工智能 / AI Agent / 工程实践</td>
+    </tr><tr>
+      <td>明晰样例 · 间隔重复 Word 笔记</td>
+      <td>positive_exemplar / 待定</td>
+      <td>positive_exemplar / 资料收藏</td>
+      <td>认知科学 / 学习方法 / 记忆技巧 / 间隔重复</td>
+    </tr><tr>
+      <td>gold 定稿后改 --gt-dir gold 即为真指标</td>
+      <td>mixed / 待定</td>
+      <td>mixed / 学习理论</td>
+      <td>人工智能 / 计算机视觉 / 文档识别 / 营业执照识别</td>
+    </tr><tr>
+      <td>GPU 推理部署工程经验</td>
+      <td>mixed / 反例避坑</td>
+      <td>mixed / 学习理论</td>
+      <td>工程 / GPU推理 / 模型部署 / LLM推理优化</td>
+    </tr><tr>
+      <td>SDD 需求文档闭环管理</td>
+      <td>mixed / 反例避坑</td>
+      <td>mixed / 学习理论</td>
+      <td>工程 / 软件开发 / 需求管理 / SDD闭环管理</td>
+    </tr><tr>
+      <td>大模型工程经验学习资源地图</td>
+      <td>positive_exemplar / 反例避坑</td>
+      <td>mixed / 学习理论</td>
+      <td>工程 / 大模型工程 / 本地部署 / 推理优化</td>
+    </tr><tr>
+      <td>🌐 超大 KG（个人知识总图）</td>
+      <td>neutral_observe / 资料收藏</td>
+      <td>neutral_observe / 学习理论</td>
+      <td>知识管理 / 个人知识系统 / 知识图谱 / 超大KG</td>
+    </tr><tr>
+      <td>🌐 超大 KG（个人知识总图）</td>
+      <td>neutral_observe / 学习理论</td>
+      <td>neutral_observe / 学习理论</td>
+      <td>知识管理 / 个人知识系统 / 知识图谱构建 / 超大KG设计</td>
+    </tr>
+  </table>
+
+  <h2>失败条目（最多 40）</h2>
+  <table><tr><th>ID</th><th>层</th><th>详情</th></tr><tr><td>real_csdn_157808284</td><td>polarity</td><td>{"id":"real_csdn_157808284","layer":"polarity","gold":"positive_exemplar","pred":"mixed"}</td></tr><tr><td>real_csdn_157808284</td><td>purpose</td><td>{"id":"real_csdn_157808284","layer":"purpose","gold":"素材金句","pred":"学习理论"}</td></tr><tr><td>real_csdn_161185997</td><td>purpose</td><td>{"id":"real_csdn_161185997","layer":"purpose","gold":"待定","pred":"学习理论"}</td></tr><tr><td>real_csdn_161266269</td><td>polarity</td><td>{"id":"real_csdn_161266269","layer":"polarity","gold":"positive_exemplar","pred":"mixed"}</td></tr><tr><td>real_csdn_162008414</td><td>polarity</td><td>{"id":"real_csdn_162008414","layer":"polarity","gold":"positive_exemplar","pred":"mixed"}</td></tr><tr><td>real_docx_sr_note</td><td>purpose</td><td>{"id":"real_docx_sr_note","layer":"purpose","gold":"待定","pred":"资料收藏"}</td></tr><tr><td>real_obs_00_收件箱_营业执照信息抽取_实验分析报告</td><td>purpose</td><td>{"id":"real_obs_00_收件箱_营业执照信息抽取_实验分析报告","layer":"purpose","gold":"待定","pred":"学习理论"}</td></tr><tr><td>real_obs_01_知识库_工程经验_GPU推理部署</td><td>purpose</td><td>{"id":"real_obs_01_知识库_工程经验_GPU推理部署","layer":"purpose","gold":"反例避坑","pred":"学习理论"}</td></tr><tr><td>real_obs_01_知识库_工程经验_SDD需求文档闭环管理</td><td>purpose</td><td>{"id":"real_obs_01_知识库_工程经验_SDD需求文档闭环管理","layer":"purpose","gold":"反例避坑","pred":"学习理论"}</td></tr><tr><td>real_obs_01_知识库_工程经验_大模型工程经验学习资源</td><td>polarity</td><td>{"id":"real_obs_01_知识库_工程经验_大模型工程经验学习资源","layer":"polarity","gold":"positive_exemplar","pred":"mixed"}</td></tr><tr><td>real_obs_01_知识库_工程经验_大模型工程经验学习资源</td><td>purpose</td><td>{"id":"real_obs_01_知识库_工程经验_大模型工程经验学习资源","layer":"purpose","gold":"反例避坑","pred":"学习理论"}</td></tr><tr><td>real_obs_01_知识库_知识图谱_超大KG</td><td>purpose</td><td>{"id":"real_obs_01_知识库_知识图谱_超大KG","layer":"purpose","gold":"资料收藏","pred":"学习理论"}</td></tr><tr><td>real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索</td><td>polarity</td><td>{"id":"real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索","layer":"polarity","gold":"mixed","pred":"neutral_observe"}</td></tr><tr><td>real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索</td><td>purpose</td><td>{"id":"real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索","layer":"purpose","gold":"待定","pred":"资料收藏"}</td></tr><tr><td>real_obs_02_科研_RAG_纯文本RAG_SOTA总结</td><td>polarity</td><td>{"id":"real_obs_02_科研_RAG_纯文本RAG_SOTA总结","layer":"polarity","gold":"positive_exemplar","pred":"mixed"}</td></tr><tr><td>real_obs_02_科研_RAG_纯文本RAG_SOTA总结</td><td>purpose</td><td>{"id":"real_obs_02_科研_RAG_纯文本RAG_SOTA总结","layer":"purpose","gold":"资料收藏","pred":"学习理论"}</td></tr><tr><td>real_obs_img_IMG_4552</td><td>purpose</td><td>{"id":"real_obs_img_IMG_4552","layer":"purpose","gold":"学习理论","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_IMG_6726</td><td>polarity</td><td>{"id":"real_obs_img_IMG_6726","layer":"polarity","gold":"positive_exemplar","pred":"neutral_observe"}</td></tr><tr><td>real_obs_img_IMG_6726</td><td>purpose</td><td>{"id":"real_obs_img_IMG_6726","layer":"purpose","gold":"学习理论","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_IMG_6727</td><td>purpose</td><td>{"id":"real_obs_img_IMG_6727","layer":"purpose","gold":"学习理论","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_IMG_6728</td><td>purpose</td><td>{"id":"real_obs_img_IMG_6728","layer":"purpose","gold":"素材金句","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604134823</td><td>polarity</td><td>{"id":"real_obs_img_Pasted_image_20260604134823","layer":"polarity","gold":"neutral_observe","pred":"unknown"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604134823</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260604134823","layer":"purpose","gold":"素材金句","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604161828</td><td>polarity</td><td>{"id":"real_obs_img_Pasted_image_20260604161828","layer":"polarity","gold":"negative_caution","pred":"unknown"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604161828</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260604161828","layer":"purpose","gold":"待定","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604164632</td><td>polarity</td><td>{"id":"real_obs_img_Pasted_image_20260604164632","layer":"polarity","gold":"mixed","pred":"neutral_observe"}</td></tr><tr><td>real_obs_img_Pasted_image_20260604164632</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260604164632","layer":"purpose","gold":"反例避坑","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260617143342</td><td>polarity</td><td>{"id":"real_obs_img_Pasted_image_20260617143342","layer":"polarity","gold":"negative_caution","pred":"unknown"}</td></tr><tr><td>real_obs_img_Pasted_image_20260617143342</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260617143342","layer":"purpose","gold":"对标拆解","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260618110757</td><td>polarity</td><td>{"id":"real_obs_img_Pasted_image_20260618110757","layer":"polarity","gold":"negative_caution","pred":"unknown"}</td></tr><tr><td>real_obs_img_Pasted_image_20260618110757</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260618110757","layer":"purpose","gold":"反例避坑","pred":"资料收藏"}</td></tr><tr><td>real_obs_img_Pasted_image_20260618110959</td><td>purpose</td><td>{"id":"real_obs_img_Pasted_image_20260618110959","layer":"purpose","gold":"素材金句","pred":"资料收藏"}</td></tr><tr><td>real_pk_2026面向Token词元运营的大模型推理优化技术白皮书69页</td><td>purpose</td><td>{"id":"real_pk_2026面向Token词元运营的大模型推理优化技术白皮书69页","layer":"purpose","gold":"素材金句","pred":"资料收藏"}</td></tr><tr><td>real_pk_AI情报简报_2026_07_16</td><td>purpose</td><td>{"id":"real_pk_AI情报简报_2026_07_16","layer":"purpose","gold":"反例避坑","pred":"对标拆解"}</td></tr><tr><td>real_pk_Agent_skills技术总结综述</td><td>purpose</td><td>{"id":"real_pk_Agent_skills技术总结综述","layer":"purpose","gold":"对标拆解","pred":"学习理论"}</td></tr><tr><td>real_pk_Agentic_Harness_Engineering</td><td>purpose</td><td>{"id":"real_pk_Agentic_Harness_Engineering","layer":"purpose","gold":"素材金句","pred":"学习理论"}</td></tr><tr><td>real_pk_Skill路由问题分析</td><td>purpose</td><td>{"id":"real_pk_Skill路由问题分析","layer":"purpose","gold":"对标拆解","pred":"反例避坑"}</td></tr><tr><td>real_pk_WAIC2026_参展商信息扫描</td><td>purpose</td><td>{"id":"real_pk_WAIC2026_参展商信息扫描","layer":"purpose","gold":"学习理论","pred":"资料收藏"}</td></tr><tr><td>real_pk_上海联通_上飞公司航研所质检课题汇报2025_06</td><td>polarity</td><td>{"id":"real_pk_上海联通_上飞公司航研所质检课题汇报2025_06","layer":"polarity","gold":"neutral_observe","pred":"unknown"}</td></tr><tr><td>real_pk_上海联通_上飞公司航研所质检课题汇报2025_06</td><td>purpose</td><td>{"id":"real_pk_上海联通_上飞公司航研所质检课题汇报2025_06","layer":"purpose","gold":"待定","pred":"资料收藏"}</td></tr></table>
+
+  <p class="lede">说明：本轮按产品约定将银标直接当作评测金标；打标模型与被测 Agent 模型已分离。完整方案见 docs/mingxi/10 / 11 / 14。</p>
+</body>
+</html>

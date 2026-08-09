@@ -1,0 +1,95 @@
+{
+  "cardId": "real_wx_v4xh",
+  "corpusId": "wx_v4xh",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "创作与媒介",
+      "内容创作",
+      "公众号运营"
+    ],
+    "functionalTypes": [
+      "experience"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "学习理论",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "创作与媒介.内容创作.公众号运营",
+        "label": "公众号运营",
+        "path": [
+          "创作与媒介",
+          "内容创作",
+          "公众号运营"
+        ],
+        "confidence": 0.85
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.9,
+      "signals": []
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "学习理论",
+    "overallConfidence": 0.85,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "一篇关于微信公众号文章的链接索引，内容不可用，仅提供来源信息。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "学习理论",
+    "casePolarity": "neutral",
+    "functionalForm": "经验帖",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:26:19.799Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

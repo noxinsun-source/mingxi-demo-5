@@ -1,0 +1,111 @@
+{
+  "cardId": "real_csdn_157808284",
+  "corpusId": "csdn_157808284",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "Agent",
+      "Skill设计"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "experience"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "素材金句",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.Agent.Skill设计",
+        "label": "Skill设计",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "Agent",
+          "Skill设计"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "experience",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "推荐",
+        "可复用"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "素材金句",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "Skill是一种可复用、可共享的轻量级Agent能力扩展格式，通过规范的元数据和结构化说明提升AI任务执行效率。",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "素材金句",
+    "casePolarity": "positive",
+    "functionalForm": "教程步骤",
+    "stance": "imitate",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:26:37.377Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "素材金句",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}

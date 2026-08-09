@@ -1,0 +1,121 @@
+{
+  "cardId": "real_obs_img_IMG_4552",
+  "corpusId": "obs_img_IMG_4552",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "生活与职业",
+      "理财消费",
+      "个人理财",
+      "利率产品"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "experience",
+      "clip"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn",
+      "park"
+    ],
+    "purposeLabel": "学习理论",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "生活与职业.理财消费.个人理财.利率产品",
+        "label": "利率产品",
+        "path": [
+          "生活与职业",
+          "理财消费",
+          "个人理财",
+          "利率产品"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.85,
+      "signals": [
+        "利率银行app",
+        "存款",
+        "贷款",
+        "理财",
+        "保险",
+        "基金",
+        "国债",
+        "利率"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "park",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "学习理论",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "一份关于银行利率产品的对比分析笔记，涵盖存款、贷款、理财、保险、基金等类别及其利率、期限和风险特征。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "学习理论",
+    "casePolarity": "neutral",
+    "functionalForm": "教程步骤",
+    "stance": "transform_ok",
+    "userGoalText": "learn,park",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:28:48.124Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

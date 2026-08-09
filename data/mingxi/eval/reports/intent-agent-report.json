@@ -1,0 +1,975 @@
+{
+  "generatedAt": "2026-08-04T15:05:08.914Z",
+  "layer": "P1_understanding",
+  "scheme": "docs/mingxi/20-agent-eval-scheme-v2.md",
+  "datasetVersion": "2026.08.04-silver-v2.1-rebalanced",
+  "metricPolicy": {
+    "gate": [
+      "L1_path2",
+      "L2_polarity.criticalFlip",
+      "gate_confirm",
+      "organize",
+      "redlines"
+    ],
+    "referenceOnly": [
+      "L2_purpose",
+      "R-C2"
+    ],
+    "note": "C2 用途建议不进 CI 失败线"
+  },
+  "paths": {
+    "agentCode": "lib/mingxi/intent/",
+    "agentCore": "lib/mingxi/intent/agent-core.ts",
+    "classifier": "lib/mingxi/intent/classifier.ts",
+    "orchestrator": "lib/mingxi/agent/orchestrator.ts",
+    "engine": "lib/mingxi/engine/",
+    "realDataset": "data/mingxi/real/latest-cards.json",
+    "silverGold": "data/mingxi/eval/gold/",
+    "silverManifest": "data/mingxi/eval/silver-manifest.json",
+    "vocab": "data/mingxi/eval/vocab/",
+    "reportHtml": "data/mingxi/eval/reports/intent-agent-report.html",
+    "reportJson": "data/mingxi/eval/reports/intent-agent-report.json",
+    "schemeDocs": [
+      "docs/mingxi/20-agent-eval-scheme-v2.md",
+      "docs/mingxi/10-intent-scheme-v3.md",
+      "docs/mingxi/11-eval-and-dataset-master.md"
+    ]
+  },
+  "models": {
+    "silver": "Qwen/Qwen3-VL-32B-Instruct",
+    "agentUnderTest": "Qwen/Qwen2.5-7B-Instruct"
+  },
+  "counts": {
+    "gold": 60,
+    "cards": 586
+  },
+  "layers": {
+    "L2_polarity": {
+      "pass": 40,
+      "total": 60,
+      "criticalFlip": 1
+    },
+    "L2_purpose": {
+      "pass": 18,
+      "total": 60
+    },
+    "L2_stance": {
+      "pass": 43,
+      "total": 60
+    },
+    "L1_path2": {
+      "pass": 60,
+      "total": 60
+    },
+    "gate_confirm": {
+      "pass": 60,
+      "total": 60
+    },
+    "organize": {
+      "pass": 60,
+      "total": 60,
+      "citeOk": 60
+    },
+    "L3_dialog": {
+      "pass": 5,
+      "total": 6
+    },
+    "redlines": {
+      "R1_stance": true,
+      "R2_confirm_gate": true,
+      "R4_citations": true
+    }
+  },
+  "failures": [
+    {
+      "id": "real_csdn_157808284",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "mixed"
+    },
+    {
+      "id": "real_csdn_157808284",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_csdn_161185997",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_csdn_161266269",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "mixed"
+    },
+    {
+      "id": "real_csdn_162008414",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "mixed"
+    },
+    {
+      "id": "real_docx_sr_note",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_00_收件箱_营业执照信息抽取_实验分析报告",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_GPU推理部署",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_SDD需求文档闭环管理",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_大模型工程经验学习资源",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "mixed"
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_大模型工程经验学习资源",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_01_知识库_知识图谱_超大KG",
+      "layer": "purpose",
+      "gold": "资料收藏",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+      "layer": "polarity",
+      "gold": "mixed",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "mixed"
+    },
+    {
+      "id": "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "layer": "purpose",
+      "gold": "资料收藏",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_obs_img_IMG_4552",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_IMG_6726",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_obs_img_IMG_6726",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_IMG_6727",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_IMG_6728",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604134823",
+      "layer": "polarity",
+      "gold": "neutral_observe",
+      "pred": "unknown"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604134823",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604161828",
+      "layer": "polarity",
+      "gold": "negative_caution",
+      "pred": "unknown"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604161828",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604164632",
+      "layer": "polarity",
+      "gold": "mixed",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260604164632",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260617143342",
+      "layer": "polarity",
+      "gold": "negative_caution",
+      "pred": "unknown"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260617143342",
+      "layer": "purpose",
+      "gold": "对标拆解",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260618110757",
+      "layer": "polarity",
+      "gold": "negative_caution",
+      "pred": "unknown"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260618110757",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_obs_img_Pasted_image_20260618110959",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_pk_2026面向Token词元运营的大模型推理优化技术白皮书69页",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_pk_AI情报简报_2026_07_16",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "对标拆解"
+    },
+    {
+      "id": "real_pk_Agent_skills技术总结综述",
+      "layer": "purpose",
+      "gold": "对标拆解",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_pk_Agentic_Harness_Engineering",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_pk_Skill路由问题分析",
+      "layer": "purpose",
+      "gold": "对标拆解",
+      "pred": "反例避坑"
+    },
+    {
+      "id": "real_pk_WAIC2026_参展商信息扫描",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_pk_上海联通_上飞公司航研所质检课题汇报2025_06",
+      "layer": "polarity",
+      "gold": "neutral_observe",
+      "pred": "unknown"
+    },
+    {
+      "id": "real_pk_上海联通_上飞公司航研所质检课题汇报2025_06",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "negative_caution"
+    },
+    {
+      "id": "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2",
+      "layer": "purpose",
+      "gold": "资料收藏",
+      "pred": "反例避坑"
+    },
+    {
+      "id": "real_pk_大模型在垂直领域应用的挑战与机遇_1",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_pk_大语言模型应用中的提示泄露攻击",
+      "layer": "purpose",
+      "gold": "反例避坑",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_pk_理解与生成一体化_统一多_模态大模型的自回归路线_1",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_txt_voice_asr",
+      "layer": "purpose",
+      "gold": "待定",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_web_arxiv_abs",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_web_arxiv_abs",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_commonmark",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_pep20",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_pep8",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_py_intro",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_rfc8259",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_web_wiki_sr_zh",
+      "layer": "purpose",
+      "gold": "资料收藏",
+      "pred": "学习理论"
+    },
+    {
+      "id": "real_wx_v4xh",
+      "layer": "purpose",
+      "gold": "学习理论",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_xhs_floatball",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_xhs_shot_agent_eval_comment",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_xhs_shot_eval_dirty_work",
+      "layer": "polarity",
+      "gold": "mixed",
+      "pred": "negative_caution"
+    },
+    {
+      "id": "real_xhs_shot_quantiv_gpt_workflow",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_xhs_shot_quantiv_gpt_workflow",
+      "layer": "purpose",
+      "gold": "素材金句",
+      "pred": "资料收藏"
+    },
+    {
+      "id": "real_xhs_shot_rag_bm25_insight",
+      "layer": "polarity",
+      "gold": "positive_exemplar",
+      "pred": "neutral_observe"
+    },
+    {
+      "id": "real_xhs_shot_rag_bm25_insight",
+      "layer": "purpose",
+      "gold": "对标拆解",
+      "pred": "学习理论"
+    },
+    {
+      "id": "L3-001",
+      "layer": "L3",
+      "utterance": "把这条避雷整理成清单",
+      "expect": "organize",
+      "pred": "reline"
+    }
+  ],
+  "samples": [
+    {
+      "id": "real_csdn_157808284",
+      "title": "Agent Skill 入门与写作指南_skill文档",
+      "gold": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "Agent开发",
+          "Skill设计"
+        ],
+        "functionalTypes": [
+          "procedure",
+          "experience"
+        ],
+        "polarity": "positive_exemplar",
+        "userGoals": [
+          "learn"
+        ],
+        "purposeLabel": "素材金句",
+        "stance": "imitate",
+        "actionIntents": [
+          "extract_playbook",
+          "summarize"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "技术",
+          "人工智能",
+          "Agent开发",
+          "Skill设计"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_csdn_160321127",
+      "title": "提示词工程：Agent落地的核心命脉，彻底掌控大模型输出的全体系方法论",
+      "gold": {
+        "domainPath": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "Agent系统"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure",
+          "clip"
+        ],
+        "polarity": "negative_caution",
+        "userGoals": [
+          "avoid",
+          "learn"
+        ],
+        "purposeLabel": "反例避坑",
+        "stance": "do_not_imitate_failure_path",
+        "actionIntents": [
+          "extract_lesson",
+          "tag_warning",
+          "create_checklist"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "negative_caution",
+        "purpose": "反例避坑",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "Agent系统"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_csdn_161185997",
+      "title": "大模型提示词工程高阶写法 + 实战避坑指南｜从入门 Prompt 到工业级结构化指令",
+      "gold": {
+        "domainPath": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "工业级指令设计"
+        ],
+        "functionalTypes": [
+          "procedure",
+          "experience",
+          "clip"
+        ],
+        "polarity": "mixed",
+        "userGoals": [
+          "avoid",
+          "learn"
+        ],
+        "purposeLabel": "待定",
+        "stance": "do_not_imitate_failure_path",
+        "actionIntents": [
+          "extract_lesson",
+          "tag_warning",
+          "create_checklist"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "工业级指令设计"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_csdn_161266269",
+      "title": "重新定义 AI 生产力：Agent Skills 全链路开发与实战指南",
+      "gold": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "AI Agent开发",
+          "Skills开发"
+        ],
+        "functionalTypes": [
+          "procedure",
+          "experience",
+          "clip"
+        ],
+        "polarity": "positive_exemplar",
+        "userGoals": [
+          "learn",
+          "park"
+        ],
+        "purposeLabel": "对标拆解",
+        "stance": "imitate",
+        "actionIntents": [
+          "extract_playbook",
+          "summarize"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "对标拆解",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "技术",
+          "人工智能",
+          "AI Agent开发",
+          "Skills开发"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_csdn_162008414",
+      "title": "调查研究-178 Google 官方 Agent Skills 仓库解读：AI Agent 时代，知识正在从「提示词」变成「可安装能力包」",
+      "gold": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "AI Agent",
+          "工程实践"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure",
+          "clip"
+        ],
+        "polarity": "positive_exemplar",
+        "userGoals": [
+          "learn",
+          "park"
+        ],
+        "purposeLabel": "对标拆解",
+        "stance": "imitate",
+        "actionIntents": [
+          "extract_playbook",
+          "summarize"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "对标拆解",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "技术",
+          "人工智能",
+          "AI Agent",
+          "工程实践"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_docx_sr_note",
+      "title": "明晰样例 · 间隔重复 Word 笔记",
+      "gold": {
+        "domainPath": [
+          "认知科学",
+          "学习方法",
+          "记忆技巧",
+          "间隔重复"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure"
+        ],
+        "polarity": "positive_exemplar",
+        "userGoals": [
+          "learn"
+        ],
+        "purposeLabel": "待定",
+        "stance": "imitate",
+        "actionIntents": [
+          "extract_playbook",
+          "summarize"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "positive_exemplar",
+        "purpose": "资料收藏",
+        "stance": "imitate",
+        "path": [
+          "认知科学",
+          "学习方法",
+          "记忆技巧",
+          "间隔重复"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_00_收件箱_营业执照信息抽取_实验分析报告",
+      "title": "gold 定稿后改 --gt-dir gold 即为真指标",
+      "gold": {
+        "domainPath": [
+          "人工智能",
+          "计算机视觉",
+          "文档识别",
+          "营业执照识别"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure",
+          "clip"
+        ],
+        "polarity": "mixed",
+        "userGoals": [
+          "learn",
+          "avoid"
+        ],
+        "purposeLabel": "待定",
+        "stance": "do_not_imitate_failure_path",
+        "actionIntents": [
+          "extract_lesson",
+          "tag_warning",
+          "create_checklist"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "人工智能",
+          "计算机视觉",
+          "文档识别",
+          "营业执照识别"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_GPU推理部署",
+      "title": "GPU 推理部署工程经验",
+      "gold": {
+        "domainPath": [
+          "工程",
+          "GPU推理",
+          "模型部署",
+          "LLM推理优化"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure",
+          "clip"
+        ],
+        "polarity": "mixed",
+        "userGoals": [
+          "avoid",
+          "learn"
+        ],
+        "purposeLabel": "反例避坑",
+        "stance": "do_not_imitate_failure_path",
+        "actionIntents": [
+          "extract_lesson",
+          "tag_warning",
+          "create_checklist"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "工程",
+          "GPU推理",
+          "模型部署",
+          "LLM推理优化"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_SDD需求文档闭环管理",
+      "title": "SDD 需求文档闭环管理",
+      "gold": {
+        "domainPath": [
+          "工程",
+          "软件开发",
+          "需求管理",
+          "SDD闭环管理"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure"
+        ],
+        "polarity": "mixed",
+        "userGoals": [
+          "learn",
+          "avoid"
+        ],
+        "purposeLabel": "反例避坑",
+        "stance": "do_not_imitate_failure_path",
+        "actionIntents": [
+          "extract_lesson",
+          "tag_warning",
+          "create_checklist"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "工程",
+          "软件开发",
+          "需求管理",
+          "SDD闭环管理"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_01_知识库_工程经验_大模型工程经验学习资源",
+      "title": "大模型工程经验学习资源地图",
+      "gold": {
+        "domainPath": [
+          "工程",
+          "大模型工程",
+          "本地部署",
+          "推理优化"
+        ],
+        "functionalTypes": [
+          "experience",
+          "procedure",
+          "resource"
+        ],
+        "polarity": "positive_exemplar",
+        "userGoals": [
+          "learn",
+          "avoid"
+        ],
+        "purposeLabel": "反例避坑",
+        "stance": "imitate",
+        "actionIntents": [
+          "extract_playbook",
+          "summarize"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "mixed",
+        "purpose": "学习理论",
+        "stance": "do_not_imitate_failure_path",
+        "path": [
+          "工程",
+          "大模型工程",
+          "本地部署",
+          "推理优化"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_01_知识库_知识图谱_超大KG",
+      "title": "🌐 超大 KG（个人知识总图）",
+      "gold": {
+        "domainPath": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱",
+          "超大KG"
+        ],
+        "functionalTypes": [
+          "procedure",
+          "experience",
+          "clip"
+        ],
+        "polarity": "neutral_observe",
+        "userGoals": [
+          "learn",
+          "park"
+        ],
+        "purposeLabel": "资料收藏",
+        "stance": "transform_ok",
+        "actionIntents": [
+          "summarize",
+          "create_flashcards"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "neutral_observe",
+        "purpose": "学习理论",
+        "stance": "transform_ok",
+        "path": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱",
+          "超大KG"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    },
+    {
+      "id": "real_obs_01_知识库_知识图谱_超大KG_mindmap",
+      "title": "🌐 超大 KG（个人知识总图）",
+      "gold": {
+        "domainPath": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱构建",
+          "超大KG设计"
+        ],
+        "functionalTypes": [
+          "procedure",
+          "experience",
+          "clip"
+        ],
+        "polarity": "neutral_observe",
+        "userGoals": [
+          "learn",
+          "park"
+        ],
+        "purposeLabel": "学习理论",
+        "stance": "transform_ok",
+        "actionIntents": [
+          "summarize",
+          "create_flashcards"
+        ],
+        "mustClarify": false
+      },
+      "pred": {
+        "polarity": "neutral_observe",
+        "purpose": "学习理论",
+        "stance": "transform_ok",
+        "path": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱构建",
+          "超大KG设计"
+        ],
+        "model": "Qwen/Qwen2.5-7B-Instruct"
+      }
+    }
+  ],
+  "summary": {
+    "L1_path2": "100.0%",
+    "L2_polarity": "66.7%",
+    "L2_purpose_reference": "30.0%",
+    "L2_stance": "71.7%",
+    "criticalFlip": 1,
+    "gate_confirm": "100.0%",
+    "organize": "100.0%",
+    "L3_dialog": "83.3%",
+    "retrieveSmoke": 5,
+    "redlines": {
+      "R1_stance": true,
+      "R2_confirm_gate": true,
+      "R4_citations": true
+    },
+    "p1GatePass": false
+  }
+}

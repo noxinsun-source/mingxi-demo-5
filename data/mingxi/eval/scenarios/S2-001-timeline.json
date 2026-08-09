@@ -1,0 +1,24 @@
+{
+  "id": "S2-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S2_timeline",
+  "title": "按时间线梳理 Agent / harness 笔记",
+  "corpus": {
+    "poolCardIds": [
+      "real_pk_Agentic_Harness_Engineering",
+      "real_pk_Agent_skills技术总结综述",
+      "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2",
+      "real_csdn_161266269",
+      "real_web_pep8",
+      "real_web_rfc8259"
+    ]
+  },
+  "utterance": "按时间线重排这些 Agent 与 harness 笔记",
+  "assertions": [
+    { "type": "intent_in", "values": ["reline"] },
+    { "type": "angle_order", "values": ["timeline"] },
+    { "type": "retrieve_hits_min", "n": 2 },
+    { "type": "line_min_nodes", "n": 2 },
+    { "type": "awaiting_approval" }
+  ]
+}

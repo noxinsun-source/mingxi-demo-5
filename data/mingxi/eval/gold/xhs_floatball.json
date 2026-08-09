@@ -1,0 +1,113 @@
+{
+  "cardId": "real_xhs_floatball",
+  "corpusId": "xhs_floatball",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "生活与职业",
+      "个人效率",
+      "记忆技巧",
+      "间隔重复"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "素材金句",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "生活与职业.个人效率.记忆技巧.间隔重复",
+        "label": "间隔重复",
+        "path": [
+          "生活与职业",
+          "个人效率",
+          "记忆技巧",
+          "间隔重复"
+        ],
+        "confidence": 0.85
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.9,
+      "signals": [
+        "间隔不是玄学",
+        "是提取练习",
+        "隔一天再测比连背更稳",
+        "评论区有人质疑样本量"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "素材金句",
+    "overallConfidence": 0.85,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "间隔重复的有效性被作者支持，但存在样本量质疑，需进一步验证。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "素材金句",
+    "casePolarity": "neutral",
+    "functionalForm": "经验帖",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:24:11.911Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "素材金句",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}

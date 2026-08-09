@@ -1,0 +1,39 @@
+{
+  "id": "S1-002",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S1_contrast_reline",
+  "title": "Agent 技能：避雷与正例对照",
+  "corpus": {
+    "poolCardIds": [
+      "real_csdn_160321127",
+      "real_obs_02_科研_ARIS_mNGS_创新点",
+      "real_csdn_162008414",
+      "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2",
+      "real_web_pep20",
+      "real_web_commonmark"
+    ],
+    "polarityPlant": {
+      "negative": ["real_csdn_160321127", "real_obs_02_科研_ARIS_mNGS_创新点"],
+      "positive_or_neutral": [
+        "real_csdn_162008414",
+        "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2"
+      ]
+    }
+  },
+  "utterance": "按正反对照重排 Agent 技能相关经验",
+  "expect": {
+    "intent": ["reline"]
+  },
+  "assertions": [
+    { "type": "intent_in", "values": ["reline"] },
+    { "type": "retrieve_hits_min", "n": 2 },
+    {
+      "type": "retrieve_intersects",
+      "cardIds": ["real_csdn_160321127", "real_csdn_162008414"]
+    },
+    { "type": "line_min_nodes", "n": 2 },
+    { "type": "line_both_polarity_buckets" },
+    { "type": "negative_nodes_forbid_phrases" },
+    { "type": "awaiting_approval" }
+  ]
+}

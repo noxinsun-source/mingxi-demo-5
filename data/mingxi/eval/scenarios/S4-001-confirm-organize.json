@@ -1,0 +1,17 @@
+{
+  "id": "S4-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S4_confirm_organize",
+  "title": "用途确认门 → 成件凭据",
+  "corpus": {
+    "poolCardIds": ["real_xhs_shot_eval_dirty_work", "real_web_pep8"]
+  },
+  "focusCardId": "real_xhs_shot_eval_dirty_work",
+  "utterance": "整理这条避雷成件",
+  "assertions": [
+    { "type": "intent_in", "values": ["organize"] },
+    { "type": "needs_confirm_before_organize" },
+    { "type": "organize_after_confirm" },
+    { "type": "citations_resolvable" }
+  ]
+}

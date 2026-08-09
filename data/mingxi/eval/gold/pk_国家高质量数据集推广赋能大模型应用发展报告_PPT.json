@@ -1,0 +1,106 @@
+{
+  "cardId": "real_pk_国家高质量数据集推广赋能大模型应用发展报告_PPT",
+  "corpusId": "pk_国家高质量数据集推广赋能大模型应用发展报告_PPT",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "数据集"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "资料收藏",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.数据集",
+        "label": "数据集",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "数据集"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.95,
+      "signals": []
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "资料收藏",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "国家推动高质量数据集建设以赋能大模型应用发展",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "资料收藏",
+    "casePolarity": "neutral",
+    "functionalForm": "经验帖",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:24:44.481Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "资料收藏",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}

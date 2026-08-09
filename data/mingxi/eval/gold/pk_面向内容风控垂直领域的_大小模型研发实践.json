@@ -1,0 +1,118 @@
+{
+  "cardId": "real_pk_面向内容风控垂直领域的_大小模型研发实践",
+  "corpusId": "pk_面向内容风控垂直领域的_大小模型研发实践",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "自然语言处理",
+      "内容风控"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "experience",
+      "clip"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn",
+      "park"
+    ],
+    "purposeLabel": "学习理论",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.自然语言处理.内容风控",
+        "label": "内容风控",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "自然语言处理",
+          "内容风控"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.95,
+      "signals": [
+        "面向内容风控垂直领域",
+        "大小模型协同",
+        "核心挑战",
+        "实践效果与案例",
+        "数据挖掘与成本控制"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "park",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "学习理论",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "面向内容风控领域，通过大小模型协同、高效微调与动态推理架构，实现高精度、高效率、低成本的模型研发实践。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "学习理论",
+    "casePolarity": "neutral",
+    "functionalForm": "教程步骤",
+    "stance": "transform_ok",
+    "userGoalText": "learn,park",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:25:36.310Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

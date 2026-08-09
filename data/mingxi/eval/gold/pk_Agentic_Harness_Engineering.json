@@ -1,0 +1,114 @@
+{
+  "cardId": "real_pk_Agentic_Harness_Engineering",
+  "corpusId": "pk_Agentic_Harness_Engineering",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "自然语言处理",
+      "Agent"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "素材金句",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.自然语言处理.Agent",
+        "label": "Agent",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "自然语言处理",
+          "Agent"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.95,
+      "signals": [
+        "Observability-Driven",
+        "closed loop",
+        "empirically",
+        "ablations further localize",
+        "position as a practical pathway"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "素材金句",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "提出一种基于可观测性的自动编码智能体框架进化方法，通过组件、经验与决策的可观测性实现自主迭代优化。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "素材金句",
+    "casePolarity": "neutral",
+    "functionalForm": "经验帖",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:25:43.562Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "素材金句",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}

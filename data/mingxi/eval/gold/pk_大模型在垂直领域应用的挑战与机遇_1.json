@@ -1,0 +1,109 @@
+{
+  "cardId": "real_pk_大模型在垂直领域应用的挑战与机遇_1",
+  "corpusId": "pk_大模型在垂直领域应用的挑战与机遇_1",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "大模型应用",
+      "垂直领域"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "对标拆解",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.大模型应用.垂直领域",
+        "label": "垂直领域",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "大模型应用",
+          "垂直领域"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "有效",
+        "最现实的落地路径",
+        "显著降低幻觉",
+        "大幅提升答案可靠性",
+        "可追溯",
+        "支持快速更新"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "对标拆解",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "大模型在垂直领域应用需从通用能力转向可信能力，外挂知识库是当前最现实的落地路径，有效提升可靠性与可追溯性。",
+      "heuristic": "positive_exemplar"
+    }
+  },
+  "utility": {
+    "purposeLabel": "对标拆解",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:24:34.728Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

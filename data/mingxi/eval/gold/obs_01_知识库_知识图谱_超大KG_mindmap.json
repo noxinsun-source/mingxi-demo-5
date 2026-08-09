@@ -1,0 +1,114 @@
+{
+  "cardId": "real_obs_01_知识库_知识图谱_超大KG_mindmap",
+  "corpusId": "obs_01_知识库_知识图谱_超大KG_mindmap",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "生活与职业",
+      "知识管理",
+      "个人知识系统",
+      "知识图谱构建"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "experience",
+      "clip"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn",
+      "park"
+    ],
+    "purposeLabel": "学习理论",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "生活与职业.知识管理.个人知识系统.知识图谱构建",
+        "label": "知识图谱构建",
+        "path": [
+          "生活与职业",
+          "知识管理",
+          "个人知识系统",
+          "知识图谱构建"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.95,
+      "signals": [
+        "不要"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "park",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "学习理论",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "构建一个层级化、可扩展、自适应的个人知识图谱系统，通过LLM自动分类与折叠机制实现高效知识管理。",
+      "heuristic": "negative_caution"
+    }
+  },
+  "utility": {
+    "purposeLabel": "学习理论",
+    "casePolarity": "neutral",
+    "functionalForm": "教程步骤",
+    "stance": "transform_ok",
+    "userGoalText": "learn,park",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:27:48.385Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

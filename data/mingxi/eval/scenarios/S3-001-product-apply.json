@@ -1,0 +1,34 @@
+{
+  "id": "S3-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S3_theme_product",
+  "title": "理论/技能与落地产品对照",
+  "corpus": {
+    "poolCardIds": [
+      "real_csdn_157808284",
+      "real_csdn_162008414",
+      "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2",
+      "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "real_web_pep8",
+      "real_txt_voice_asr"
+    ],
+    "themePlant": {
+      "concept": ["real_csdn_157808284", "real_obs_02_科研_RAG_纯文本RAG_SOTA总结"],
+      "product": [
+        "real_csdn_162008414",
+        "real_pk_从0到1搭建Agent_Agent原理分析及个人助手实践_2"
+      ]
+    }
+  },
+  "utterance": "把 Agent 技能概念和对标落地产品相关笔记对照梳理",
+  "assertions": [
+    { "type": "intent_in", "values": ["reline"] },
+    { "type": "retrieve_hits_min", "n": 2 },
+    {
+      "type": "retrieve_intersects",
+      "cardIds": ["real_csdn_157808284", "real_csdn_162008414"]
+    },
+    { "type": "line_min_nodes", "n": 2 },
+    { "type": "awaiting_approval" }
+  ]
+}

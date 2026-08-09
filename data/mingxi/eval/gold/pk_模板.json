@@ -1,0 +1,108 @@
+{
+  "cardId": "real_pk_模板",
+  "corpusId": "pk_模板",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "创作与媒介",
+      "演示表达",
+      "幻灯片设计",
+      "模板结构"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "clip"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "资料收藏",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "创作与媒介.演示表达.幻灯片设计.模板结构",
+        "label": "模板结构",
+        "path": [
+          "创作与媒介",
+          "演示表达",
+          "幻灯片设计",
+          "模板结构"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.95,
+      "signals": []
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "资料收藏",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "一份中国联通部门使用的幻灯片模板结构，包含目录和各部分内容占位符。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "资料收藏",
+    "casePolarity": "neutral",
+    "functionalForm": "教程步骤",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:24:54.344Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "资料收藏",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}

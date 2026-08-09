@@ -1,0 +1,14 @@
+{
+  "id": "S5-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S5_clarify",
+  "title": "模糊话术必须澄清",
+  "corpus": {
+    "poolCardIds": ["real_web_pep8", "real_docx_sr_note"]
+  },
+  "utterance": "嗯",
+  "assertions": [
+    { "type": "intent_in", "values": ["clarify"] },
+    { "type": "no_organize_on_clarify" }
+  ]
+}

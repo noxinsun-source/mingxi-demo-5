@@ -1,0 +1,81 @@
+{
+  "generatedAt": "2026-08-04T15:16:52.399Z",
+  "scheme": "docs/mingxi/20-agent-eval-scheme-v2.md",
+  "frozenAs": "best_product_eval_v2",
+  "datasetVersion": "2026.08.04-silver-v2.1-rebalanced",
+  "overallGatePass": false,
+  "layers": {
+    "P0_guards": {
+      "pass": true,
+      "detail": {
+        "allPass": true,
+        "checks": {
+          "R2_confirm_gate": true,
+          "R4_citations": true,
+          "R1_stance": true
+        }
+      }
+    },
+    "P1_understanding": {
+      "status": "reused",
+      "pass": false,
+      "summary": {
+        "L1_path2": "100.0%",
+        "L2_polarity": "66.7%",
+        "L2_purpose_reference": "30.0%",
+        "L2_stance": "71.7%",
+        "criticalFlip": 1,
+        "gate_confirm": "100.0%",
+        "organize": "100.0%",
+        "L3_dialog": "83.3%",
+        "retrieveSmoke": 5,
+        "redlines": {
+          "R1_stance": true,
+          "R2_confirm_gate": true,
+          "R4_citations": true
+        },
+        "p1GatePass": false
+      },
+      "note": "C2 用途为参考指标"
+    },
+    "P3_scripts": {
+      "pass": true,
+      "summary": {
+        "pass": 8,
+        "total": 8,
+        "rate": 100,
+        "gatePass": true
+      }
+    },
+    "P4_experience": {
+      "status": "not_run",
+      "note": "Rubric/pairwise 为周更可选，不进本门禁"
+    }
+  },
+  "metrics": {
+    "M-Safe": true,
+    "M-Script": 100,
+    "M-C1": "100.0%",
+    "M-C4": "66.7%",
+    "R-C2": "30.0%",
+    "criticalFlip": 1
+  },
+  "paths": {
+    "scheme": "docs/mingxi/20-agent-eval-scheme-v2.md",
+    "evalReadme": "data/mingxi/eval/README.md",
+    "scenarios": "data/mingxi/eval/scenarios/",
+    "gold": "data/mingxi/eval/gold/",
+    "vocab": "data/mingxi/eval/vocab/",
+    "runners": {
+      "p1": "scripts/mingxi/run-intent-eval.mjs",
+      "p3": "scripts/mingxi/run-agent-scripts.mjs",
+      "v2": "scripts/mingxi/run-eval-v2.mjs"
+    },
+    "reports": {
+      "v2Html": "data/mingxi/eval/reports/agent-eval-v2-report.html",
+      "v2Json": "data/mingxi/eval/reports/agent-eval-v2-report.json",
+      "p1Html": "data/mingxi/eval/reports/intent-agent-report.html",
+      "p3Html": "data/mingxi/eval/reports/agent-scripts-report.html"
+    }
+  }
+}

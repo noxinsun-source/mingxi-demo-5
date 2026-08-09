@@ -1,0 +1,10 @@
+{
+  "version": "2026.08.04",
+  "labels": [
+    { "id": "positive_exemplar", "ui": "可学正例" },
+    { "id": "negative_caution", "ui": "避雷负例" },
+    { "id": "mixed", "ui": "正反混合" },
+    { "id": "neutral_observe", "ui": "中性观察" },
+    { "id": "unknown", "ui": "不足以判断" }
+  ]
+}

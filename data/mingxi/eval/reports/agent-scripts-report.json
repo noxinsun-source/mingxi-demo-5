@@ -1,0 +1,342 @@
+{
+  "generatedAt": "2026-08-04T15:16:52.390Z",
+  "scheme": "docs/mingxi/20-agent-eval-scheme-v2.md",
+  "datasetVersion": "2026.08.04-silver-v2.1-rebalanced",
+  "layer": "P3_agent_scripts",
+  "summary": {
+    "pass": 8,
+    "total": 8,
+    "rate": 100,
+    "gatePass": true
+  },
+  "p0": {
+    "allPass": true,
+    "checks": {
+      "R2_confirm_gate": true,
+      "R4_citations": true,
+      "R1_stance": true
+    }
+  },
+  "scenarios": [
+    {
+      "id": "S1-001",
+      "title": "评测脏活：正反对照梳链",
+      "shape": "S1_contrast_reline",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "contrast",
+      "retrieveCount": 6,
+      "lineNodes": 225,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "reline"
+        },
+        {
+          "type": "retrieve_hits_min",
+          "ok": true,
+          "detail": 6
+        },
+        {
+          "type": "retrieve_intersects",
+          "ok": true,
+          "detail": [
+            "real_xhs_shot_eval_dirty_work",
+            "real_xhs_shot_ai_pm_eval_anxiety",
+            "real_csdn_160321127"
+          ]
+        },
+        {
+          "type": "line_min_nodes",
+          "ok": true,
+          "detail": 225
+        },
+        {
+          "type": "line_both_polarity_buckets",
+          "ok": true,
+          "detail": {
+            "hasNeg": true,
+            "hasPos": true
+          }
+        },
+        {
+          "type": "negative_nodes_forbid_phrases",
+          "ok": true,
+          "detail": "clean"
+        },
+        {
+          "type": "citations_resolvable",
+          "ok": true,
+          "detail": {
+            "withCite": 222,
+            "withMat": 225
+          }
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    },
+    {
+      "id": "S1-002",
+      "title": "Agent 技能：避雷与正例对照",
+      "shape": "S1_contrast_reline",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "objection_first",
+      "retrieveCount": 4,
+      "lineNodes": 147,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "reline"
+        },
+        {
+          "type": "retrieve_hits_min",
+          "ok": true,
+          "detail": 4
+        },
+        {
+          "type": "retrieve_intersects",
+          "ok": true,
+          "detail": [
+            "real_csdn_160321127",
+            "real_csdn_162008414"
+          ]
+        },
+        {
+          "type": "line_min_nodes",
+          "ok": true,
+          "detail": 147
+        },
+        {
+          "type": "line_both_polarity_buckets",
+          "ok": true,
+          "detail": {
+            "hasNeg": true,
+            "hasPos": true
+          }
+        },
+        {
+          "type": "negative_nodes_forbid_phrases",
+          "ok": true,
+          "detail": "clean"
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    },
+    {
+      "id": "S2-001",
+      "title": "按时间线梳理 Agent / harness 笔记",
+      "shape": "S2_timeline",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "timeline",
+      "retrieveCount": 4,
+      "lineNodes": 252,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "reline"
+        },
+        {
+          "type": "angle_order",
+          "ok": true,
+          "detail": "timeline"
+        },
+        {
+          "type": "retrieve_hits_min",
+          "ok": true,
+          "detail": 4
+        },
+        {
+          "type": "line_min_nodes",
+          "ok": true,
+          "detail": 252
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    },
+    {
+      "id": "S3-001",
+      "title": "理论/技能与落地产品对照",
+      "shape": "S3_theme_product",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "action_first",
+      "retrieveCount": 5,
+      "lineNodes": 223,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "reline"
+        },
+        {
+          "type": "retrieve_hits_min",
+          "ok": true,
+          "detail": 5
+        },
+        {
+          "type": "retrieve_intersects",
+          "ok": true,
+          "detail": [
+            "real_csdn_157808284",
+            "real_csdn_162008414"
+          ]
+        },
+        {
+          "type": "line_min_nodes",
+          "ok": true,
+          "detail": 223
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    },
+    {
+      "id": "S4-001",
+      "title": "用途确认门 → 成件凭据",
+      "shape": "S4_confirm_organize",
+      "pass": true,
+      "intent": "organize",
+      "angleOrder": "default",
+      "retrieveCount": 1,
+      "lineNodes": 0,
+      "awaitingApproval": false,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "organize"
+        },
+        {
+          "type": "needs_confirm_before_organize",
+          "ok": true,
+          "detail": "NeedsConfirm"
+        },
+        {
+          "type": "organize_after_confirm",
+          "ok": true,
+          "detail": "organize+cite"
+        },
+        {
+          "type": "citations_resolvable",
+          "ok": true,
+          "detail": "cite"
+        }
+      ]
+    },
+    {
+      "id": "S5-001",
+      "title": "模糊话术必须澄清",
+      "shape": "S5_clarify",
+      "pass": true,
+      "intent": "clarify",
+      "angleOrder": "default",
+      "retrieveCount": 0,
+      "lineNodes": 0,
+      "awaitingApproval": false,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "clarify"
+        },
+        {
+          "type": "no_organize_on_clarify",
+          "ok": true,
+          "detail": "clarify"
+        }
+      ]
+    },
+    {
+      "id": "S6-001",
+      "title": "锁定节点后重排保持不变",
+      "shape": "S6_locked_reline",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "objection_first",
+      "retrieveCount": 0,
+      "lineNodes": 286,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "intent_in",
+          "ok": true,
+          "detail": "reline"
+        },
+        {
+          "type": "line_min_nodes",
+          "ok": true,
+          "detail": 286
+        },
+        {
+          "type": "locked_kept",
+          "ok": true,
+          "detail": true
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    },
+    {
+      "id": "S8-001",
+      "title": "端到端烟雾：澄清 → 对照重排计划",
+      "shape": "S8_e2e",
+      "pass": true,
+      "intent": "reline",
+      "angleOrder": "objection_first",
+      "retrieveCount": 2,
+      "lineNodes": 18,
+      "awaitingApproval": true,
+      "assertions": [
+        {
+          "type": "e2e_steps",
+          "ok": true,
+          "detail": 2
+        },
+        {
+          "type": "retrieve_hits_min",
+          "ok": true,
+          "detail": 2
+        },
+        {
+          "type": "awaiting_approval",
+          "ok": true,
+          "detail": true
+        }
+      ]
+    }
+  ],
+  "paths": {
+    "scenarios": "data/mingxi/eval/scenarios/",
+    "runner": "scripts/mingxi/run-agent-scripts.mjs",
+    "scheme": "docs/mingxi/20-agent-eval-scheme-v2.md",
+    "reportJson": "data/mingxi/eval/reports/agent-scripts-report.json",
+    "reportHtml": "data/mingxi/eval/reports/agent-scripts-report.html"
+  }
+}

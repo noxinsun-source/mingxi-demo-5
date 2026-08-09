@@ -1,0 +1,121 @@
+{
+  "cardId": "real_obs_img_Pasted_image_20260618110757",
+  "corpusId": "obs_img_Pasted_image_20260618110757",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "工业与制造",
+      "控制系统",
+      "安全功能"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "negative_caution",
+    "userGoals": [
+      "avoid",
+      "learn"
+    ],
+    "purposeLabel": "反例避坑",
+    "stance": "do_not_imitate_failure_path",
+    "actionIntents": [
+      "extract_lesson",
+      "tag_warning",
+      "create_checklist"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.工业与制造.控制系统.安全功能",
+        "label": "安全功能",
+        "path": [
+          "工程与技术科学",
+          "工业与制造",
+          "控制系统",
+          "安全功能"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "negative_caution",
+      "confidence": 0.95,
+      "signals": [
+        "故障",
+        "STOP A 被触发",
+        "Safety Integrated",
+        "诊断故障",
+        "避免",
+        "错误",
+        "失败"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      },
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_lesson",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "tag_warning",
+        "priority": 2,
+        "autoEligible": true
+      },
+      {
+        "id": "create_checklist",
+        "priority": 3,
+        "autoEligible": true
+      }
+    ],
+    "stance": "do_not_imitate_failure_path",
+    "purposeSuggestion": "反例避坑",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "当伺服系统触发 STOP A 故障时，需排查安全集成模块、内部 STOP A 状态及电气接线问题，并按步骤诊断排除。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "反例避坑",
+    "casePolarity": "negative",
+    "functionalForm": "经验帖",
+    "stance": "do_not_imitate_failure_path",
+    "userGoalText": "avoid,learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:28:59.531Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

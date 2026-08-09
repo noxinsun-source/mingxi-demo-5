@@ -1,0 +1,110 @@
+{
+  "cardId": "real_web_arxiv_abs",
+  "corpusId": "web_arxiv_abs",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "自然语言处理",
+      "机器翻译"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "学习理论",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.自然语言处理.机器翻译",
+        "label": "机器翻译",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "自然语言处理",
+          "机器翻译"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "superior in quality",
+        "more parallelizable",
+        "significantly less time to train",
+        "improving over the existing best results",
+        "establishes a new single-model state-of-the-art",
+        "generalizes well to other tasks",
+        "applying it successfully"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "学习理论",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "Transformer模型通过纯注意力机制在机器翻译任务中表现优异，训练效率高且可泛化至其他任务。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "学习理论",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:23:06.158Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

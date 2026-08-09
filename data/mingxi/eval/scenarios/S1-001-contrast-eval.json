@@ -1,0 +1,67 @@
+{
+  "id": "S1-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S1_contrast_reline",
+  "title": "评测脏活：正反对照梳链",
+  "corpus": {
+    "poolCardIds": [
+      "real_xhs_shot_eval_dirty_work",
+      "real_xhs_shot_ai_pm_eval_anxiety",
+      "real_csdn_160321127",
+      "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "real_pk_Agentic_Harness_Engineering",
+      "real_csdn_162008414",
+      "real_web_pep8",
+      "real_web_rfc8259"
+    ],
+    "polarityPlant": {
+      "negative": [
+        "real_xhs_shot_eval_dirty_work",
+        "real_xhs_shot_ai_pm_eval_anxiety",
+        "real_csdn_160321127"
+      ],
+      "positive_or_neutral": [
+        "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+        "real_pk_Agentic_Harness_Engineering",
+        "real_csdn_162008414"
+      ]
+    }
+  },
+  "utterance": "把评测相关的正反经验对照重排",
+  "expect": {
+    "intent": ["reline"],
+    "retrieve": {
+      "minHits": 2,
+      "mustHitAnyOf": [
+        "real_xhs_shot_eval_dirty_work",
+        "real_xhs_shot_ai_pm_eval_anxiety",
+        "real_csdn_160321127"
+      ]
+    },
+    "line": {
+      "minNodes": 2,
+      "requireBothPolarityBuckets": true,
+      "forbidPhrasesOnNegativeNodes": ["建议照做", "推荐按此步骤", "可以直接复制"]
+    },
+    "policy": {
+      "awaitingApprovalBeforeCommit": true
+    }
+  },
+  "assertions": [
+    { "type": "intent_in", "values": ["reline"] },
+    { "type": "retrieve_hits_min", "n": 2 },
+    {
+      "type": "retrieve_intersects",
+      "cardIds": [
+        "real_xhs_shot_eval_dirty_work",
+        "real_xhs_shot_ai_pm_eval_anxiety",
+        "real_csdn_160321127"
+      ]
+    },
+    { "type": "line_min_nodes", "n": 2 },
+    { "type": "line_both_polarity_buckets" },
+    { "type": "negative_nodes_forbid_phrases" },
+    { "type": "citations_resolvable" },
+    { "type": "awaiting_approval" }
+  ]
+}

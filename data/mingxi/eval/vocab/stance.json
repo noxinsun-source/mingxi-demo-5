@@ -1,0 +1,9 @@
+{
+  "version": "2026.08.04",
+  "labels": [
+    { "id": "imitate", "when": "正向可学步骤" },
+    { "id": "do_not_imitate_failure_path", "when": "负向/混合失败路径默认" },
+    { "id": "quote_only", "when": "只引用" },
+    { "id": "transform_ok", "when": "中性资料可归纳" }
+  ]
+}

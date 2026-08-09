@@ -1,0 +1,62 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/.vinext/
+/out/
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+next-env.d.ts
+*.tsbuildinfo
+/dist/
+/.wrangler/
+/outputs/
+/work/
+
+# local editor / scratch output
+/.cursor/
+/tmp/
+
+# 明晰 · 本地大文件 / 临时快照（公开语料在 data/mingxi/real/）
+/data/mingxi/inbox/**
+!/data/mingxi/inbox/README.md
+/data/mingxi/snapshots/
+/data/mingxi/real/samples/_docx_build/
+/data/mingxi/real/samples/_pptx_build/
+
+# 明晰 · 本机 Agent 会话与个人笔记库（产品代码会按需创建）
+/data/mingxi/agent-sessions/
+/data/mingxi/notes/
+
+# 汇报 HTML 的发布副本位于 public/汇报网页/
+/mingxi-notes-agent-structure.html
+/pi-agent-explainer.html

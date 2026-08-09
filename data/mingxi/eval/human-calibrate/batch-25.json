@@ -1,0 +1,538 @@
+{
+  "id": "human-calibrate-25-v1",
+  "createdAt": "2026-08-05T01:41:05.579Z",
+  "schemaVersion": "1.0",
+  "fields": [
+    "domainPath",
+    "polarity",
+    "stance"
+  ],
+  "note": "人校 C1 Path / C4 polarity / stance；银标仅作参考",
+  "count": 25,
+  "items": [
+    {
+      "seq": 1,
+      "cardId": "real_csdn_160321127",
+      "corpusId": "csdn_160321127",
+      "title": "提示词工程：Agent落地的核心命脉，彻底掌控大模型输出的全体系方法论",
+      "modality": "webpage",
+      "summary": "提示词工程：Agent落地的核心命脉，彻底掌控大模型输出的全体系方法论-CSDN博客\n你是不是也遇到过这样的致命问题： 接入了最先进的大模型，做…",
+      "preview": "提示词工程：Agent落地的核心命脉，彻底掌控大模型输出的全体系方法论-CSDN博客\n你是不是也遇到过这样的致命问题： 接入了最先进的大模型，做出来的Agent却频频翻车——规划任务逻辑混乱、调用工具参数错误、输出内容高频幻觉，多轮对话后直接忘记初始目标，甚至被恶意提示词注入突破规则，输出违规内容？ 你是不是也写过无数Prompt，却始终得不到稳定的输出：同样的指令，这次输出符合要求的JSON，下次就变成了无结构的自然语言；这次任务拆解清晰准确，下次就直接跳步给出错误结果？ 很多人把Agent落地失败归咎于大模型能力不足，却忽略了一个成本最低、效果最显著、决定Agent生死的核心环节——提示词工程。\n在Agent时代，提示词工程早已不是“写几句话术让大模型干活”的小技巧，而是实现大模型输出稳定、可控、精准的核心能力，是决定Agent能否从Demo走向企业级落地的命脉，更是区分玩具级大模型应用和生产级Agent系统的关键分水岭。\n这篇文章，我们将从Agent落地的核心需求出发，体系化拆解提示词工程的全链路知识：从六大核心设计要素，到标准化提示词框架；从核心进阶技巧，到System Prompt设计原则；从元提示词自动化迭代，到结构化工程化管理；再到企业级必备的防注入安全防护，最后补上新手最容易忽略的业务协同要点。同时全程配套可直接落地的正反案例与可运行代码，让你不仅读懂提示词工程，更能直接用它落地你的Agent系统。\n我们先回顾Agent的核心定义：Agent是以大模型为核心大脑，能自主感知环境、拆解目标、规划路径、调用工具、执行任务、反思迭代的闭环智能体。它和普通单轮问答的大模型应用，有三个本质区别，而这三个区别，全部依赖提示词工程来实现：\n从“被动应答”到“主动执行”，需要提示词定义执行规则 普通大模型应用是“用户问一句，模型答一句”，只需要完成单轮文本生成；而Agent需要在用户给出顶层目标后，自主推进多轮任务执行。Agent的每一步推理、每一次工具调用、每一个决策，全部由提示词来引导和约束。提示词写不好，Agent就会出现“该调用工具时不调用，不该调用时乱调用”“任务拆解混乱，偏离初始目标”的致命问题。\n从“单次生成”到“长期闭环”，需要提示词保障输出稳定性 普通大模型应用只需要保证单次输出的合理性，而Agent需要在十几轮、甚至几十轮的多轮对话、工具调用、环境交互中，始终保持输出的稳定性、一致性，不跑偏、不失忆、不幻觉。这就要求提示词必须具备强边界、强约束、强格式规范，而这正是提示词工程的核心目标。\n从“通用能力”到“业务落地”，需要提示词注入领域规则 普通大模型应用只需要用到大模型的通用能力，而企业级Agent必须严格遵守业务规则、合规要求、行业规范。比如保险理赔Agent必须符合银保监会的监管要求，财务Agent必须遵守企业财务制度，这些规则无法",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "Agent系统"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 2,
+      "cardId": "real_csdn_157808284",
+      "corpusId": "csdn_157808284",
+      "title": "Agent Skill 入门与写作指南_skill文档",
+      "modality": "webpage",
+      "summary": "本文档介绍什么是 Skill、如何使用 Skill，以及如何写好 Skill。 内容为通用概念与写作实践，不依赖特定产品；具体工具中的路径、命令…",
+      "preview": "本文档介绍什么是 Skill、如何使用 Skill，以及如何写好 Skill。 内容为通用概念与写作实践，不依赖特定产品；具体工具中的路径、命令和扩展功能请查阅该产品的文档。 Skill 遵循 Agent Skills开放标准，可被多种 AI 编程与协作工具识别与加载。\nSkill（Agent Skill）是一种轻量、开放的格式，用于用专门知识与工作流扩展 AI Agent 的能力。 本质上，一个 Skill 就是一个包含`SKILL.md`的目录：该文件包含元数据（至少`name`和`description`）以及指导 Agent 完成特定任务的说明；目录中还可以附带脚本、模板和参考材料。 在支持 Skill 的 AI 工具中，它会作为可复用、可共享的指令集存在。\n每个 Skill 通过 name 和 description 被识别：Agent 会根据当前对话与 description 的匹配程度决定是否启用；若工具支持，用户也可通过斜杠命令或菜单直接调用。\nAgent 能力越来越强，但往往缺少可靠完成实际工作所需的上下文。Skill 通过提供可按需加载的流程性知识和团队/公司/用户专属上下文来解决这一问题。\n支持 Skill 的 Agent 通常采用渐进式披露来节省上下文、提高效率（参见 What are skills?）：\n1. 发现（Discovery）：启动时只加载每个技能的 name 和 description，仅用于判断何时可能相关。\n2. 激活（Activation）：当任务与某个技能的 description 匹配时，Agent 才把该技能的完整`SKILL.md`读入上下文。\n3. 执行（Execution）：Agent 按说明执行，必要时再加载所引用的文件或运行附带脚本。\n在对话里输入与某个 Skill 相关的需求时，AI 会参考该 Skill 的 description 判断是否适用。 例如：你粘贴了日报并说「帮我把这些转成月报」，若 description 里包含「日报」「月报」「任务名称」「TOP达成结果」等词，就更容易触发「日报转月报」这类 Skill。\n- 斜杠命令（若工具支持）：输入如`/skill-name`或`/skill-name 参数内容`，直接加载该技能并可选传入参数。\n- 在对话中明确提及：例如「按日报转月报的 skill 来整理」「用某某 skill 的规则」。\nSkill 通常以目录形式存放，每个技能一个目录，内含`SKILL.md`。在你使用的工具文档中可查到「技能目录」的路径（个人 vs 项目）。列出该目录下的子目录即可看到当前可用的技能名称。\n以下为与工具无关的通用写作建议，适用于遵循 Agent Skills 标准或类似约定的 Skill。\ndescription 是 AI 是否选用该 Skill 的",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "Agent开发",
+          "Skill设计"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "素材金句"
+      }
+    },
+    {
+      "seq": 3,
+      "cardId": "real_csdn_161185997",
+      "corpusId": "csdn_161185997",
+      "title": "大模型提示词工程高阶写法 + 实战避坑指南｜从入门 Prompt 到工业级结构化指令",
+      "modality": "webpage",
+      "summary": "大模型提示词工程高阶写法 + 实战避坑指南｜从入门 Prompt 到工业级结构化指令-CSDN博客\n一、提示词工程核心底层原理\n1.1 大模型理…",
+      "preview": "大模型提示词工程高阶写法 + 实战避坑指南｜从入门 Prompt 到工业级结构化指令-CSDN博客\n一、提示词工程核心底层原理\n1.1 大模型理解指令的核心逻辑\n1.2 高阶 Prompt 五大核心组成要素\n高阶 Prompt 直观对比\n二、提示词基础规范与通用语法规则\n2.1 标点与分段规范（提升指令识别率）\n2.2 权重优先级排序（模型优先执行顺序）\n3 通用万能基础模板（全场景通用）\n三、高阶提示词主流写法全解析（核心干货）\n1 角色沉浸\n2 CoT 思维链提示词（提升逻辑推理能力\n4 结构化 JSON\n开发对接首选\n5 RAG 知识库专用高阶提示词\n企业落地必备\n6 长文本压缩\n摘要高阶提示词\nLangChain 调用高阶提示词代码\n五、提示词工程高频大坑 + 避坑修正指南\n高阶提示\n### 前言\n随着大模型全面普及，绝大多数使用者依旧停留在口语化随意提问阶段：语句杂乱、身份模糊、格式无约束、逻辑无限制，最终导致大模型输出答案天马行空、答非所问、逻辑混乱、频繁产生幻觉\n同样一个问题，每次返回结果差异极大，完全无法落地业务场景。\n提示词工程（Prompt Engineering） 不是玄学，而是一套标准化、可复用、可量化的大模型指令设计方法论。低阶 Prompt 靠语感，高阶 Prompt 靠架构。优秀的高阶提示词，能够直接决定大模型输出的准确性、规范性、结构化程度、思维逻辑、输出风格与约束边界。\n本文系统性梳理提示词工程完整体系，从基础语法、经典高阶模板、角色指令、思维链 CoT、Few-shot 示例提示、结构化格式约束、长文本限定、RAG 专用提示词，到全网高频踩坑点、错误写法修正、行业专用 Prompt 范式，附带可直接复制商用模板 + LangChain 代码调用示例，零基础也能快速写出工业级高质量提示词。\n### 一、提示词工程核心底层原理\n#### 1.1 大模型理解指令的核心逻辑\n大模型本质是上下文续写概率模型，只会严格遵循你给出的文本信息进行续写推理，不会主动猜测你的隐性需求：\n1. 你不定义身份，模型随机切换身份回答\n2. 你不划定范围，模型自由发散编造内容\n3. 你不指定格式，模型随意排版输出\n4. 你不限制思维，模型跳过推理直接给出结论\n5. 你不禁止幻觉，模型默认无依据编造答案\n#### 1.2 高阶 Prompt 五大核心组成要素\n一套标准高阶提示词必须包含 5 个模块，缺一不可：\n1. 角色定位：明确模型身份、职业、专业领域、知识边界\n2. 任务目标：清晰说明本次需要完成的核心工作\n3. 执行规则：限定回答逻辑、禁止行为、优先级要求\n4. 输入信息：用户原始问题、参考资料、背景上下文\n5. 输出规范：固定排版、字数、语言、结构、返回格式\n#### 1.3 低阶 Prompt 与高阶 Prompt 直观对比\n### 二、提示",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "大模型应用",
+          "提示词工程",
+          "工业级指令设计"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "待定"
+      }
+    },
+    {
+      "seq": 4,
+      "cardId": "real_obs_01_知识库_知识图谱_超大KG",
+      "corpusId": "obs_01_知识库_知识图谱_超大KG",
+      "title": "🌐 超大 KG（个人知识总图）",
+      "modality": "webpage",
+      "summary": "--- date: 2026-05-18 tags: [knowledge-graph, wiki, hub] type: knowledge-…",
+      "preview": "---\ndate: 2026-05-18\ntags: [knowledge-graph, wiki, hub]\ntype: knowledge-graph\nstatus: growing\n---\n\n# 🌐 超大 KG（个人知识总图）\n\n> **触发关键词**：说 \"**超大KG**\" + 一段 LLM 解释 → 自动调用 `super-kg` skill 分类保存。\n> \n> **说明**：这是一个层级化的知识图谱，从宏观领域 → 细分赛道 → 具体问题 → 局部细节，逐层下钻。  \n> **原则**：LLM 的详细解释**全文保留，一字不改**，用 `> [!quote]-` 折叠装载；骨架本身也可点击标题折叠。\n\n---\n\n## 📖 使用说明（折叠 / 展开机制）\n\n> [!info]- 点击展开「如何使用本文档」\n> \n> ### 三层折叠机制\n> \n> | 层级 | 折叠方式 | 默认状态 |\n> |------|---------|---------|\n> | **标题（H2/H3/H4/H5）** | 鼠标悬停标题，点击左侧三角形 | 展开 |\n> | **Callout `[!quote]-`** | 点击 callout 标题行 | **默认折叠** ✓ |\n> | **Callout `[!quote]+`** | 点击 callout 标题行 | 默认展开 |\n> \n> ### 层级约定\n> \n> ```\n> H2 (##)   一级领域       — 例：🧠 AI & 机器学习\n>   H3 (###)   二级方向      — 例：大语言模型 (LLM)\n>     H4 (####)   子赛道       — 例：检索增强生成 (RAG)\n>       H5 (#####)   具体问题    — 例：KG 路径推理的本质\n>         > [!quote]- 子问题标题  — 装 LLM 原文（默认折叠）\n> ```\n> \n> ### 录入新条目的格式\n> \n> ````markdown\n> ##### 具体问题标题\n> \n> > [!quote]- 简短摘要标题（YYYY-MM-DD）\n> > \n> > **来源**：[对话来源 / LLM 模型]  \n> > **关联**：[[相关笔记]] / #tag\n> > \n> > ---\n> > \n> > [LLM 原文，一字不改]\n> ````\n> \n> ### 给 Claude 的指令模板\n> \n> > \"保存这段到知识图谱：[粘贴 LLM 原文]\"  \n> > → Claude 自动判断 L1/L2/L3/L4 位置，追加 `[!quote]-` 折叠块\n\n---\n\n## 🤖 自适应机制（Claude 工作准则）\n\n> [!important]- 点击展开「",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱",
+          "超大KG"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "资料收藏"
+      }
+    },
+    {
+      "seq": 5,
+      "cardId": "real_obs_02_科研_ARIS_mNGS_创新点",
+      "corpusId": "obs_02_科研_ARIS_mNGS_创新点",
+      "title": "创新点",
+      "modality": "webpage",
+      "summary": "--- date: 2026-04-15 tags: [\"research/mNGS\"] --- #### 方案2：规划驱动骨架KG-RAG（P…",
+      "preview": "---\ndate: 2026-04-15\ntags: [\"research/mNGS\"]\n---\n\n#### 方案2：规划驱动骨架KG-RAG（Plan-Guided Skeleton KG-RAG, PSK-RAG）\n\n- **组成模块：** 包括问题复杂度分类器、轻量LM推理骨架生成器、子问题分解与验证模块、KG子图查询器（或语义检索器）、多轮答案合成模块。\n    \n- **技术路径：** 系统首先对问题进行复杂度评估；然后利用轻量级语言模型（如微调的小型Transformer）根据问题生成一个高层次的多步骤推理计划（骨架），该骨架由一系列子问题或实体关系组成。随后，对于每一步子问题，通过KG查询或检索相关证据，生成初步答案或事实。如果答案质量或一致性不佳，则触发反馈循环（类似PAR-RAG中“评审”阶段）对检索结果进行补充或重检索。最终，所有子答案与结构化证据一起送入生成模型，合成为最终答案。该流程保证了自顶向下的结构化推理，并在需要时对中间步骤进行校验。若无KG场景，则骨架引导下的检索可退化为语义检索与问答模块结合。\n    \n- **创新定位：** 本方案将SKRAG的单步骨架思路与PAR-RAG的规划与验证流程结合：骨架生成指引检索，反馈机制保证每步推理的准确性。不同于仅用大模型逐步问答，本方案由小模型负责生成和监督逻辑骨架，KG模块提供事实支撑，从而减少大模型的盲目推理。其底层原理在于利用结构化计划减少检索空间、降低推理偏差，并通过迭代验证增强一致性。\n    \n- **与现有工作的对比：** 与SKRAG只生成一次骨架不同，PSK-RAG 进行多轮规划与答题验证；与PAR-RAG类似使用“计划-行动-评审”，但PSK-RAG 强调KG检索在每一步中的作用，显式利用结构化知识而不仅仅是文本。此方案尚未在公开顶会中出现：SKRAG未包含闭环校验，PAR-RAG也未结合KG检索。PSK-RAG 的创新在于将高级计划与结构化知识检索模块耦合，共同驱动推理过程。\n    \n- **可行性分析：** 所有模块均可由现有组件实现：小模型可学习生成问题分解或骨架提示；KG查询用现成图数据库或服务；验证可用较小的真假判断模型。其优点是明确可控的推理流程，降低了答案错误传播；缺点是流程较长、复杂度高，可能带来响应延迟；骨架生成和验证的质量也依赖于训练数据。适用于需要严谨推理的大型多跳QA任务，尤其是领域性或技术性问答。\n- ### 💡\n#### 多专家检索门控RAG（Multi-Expert Retrieval-Gate RAG, MERG-RAG）\n\n- **组成模块：** 包含多个检索专家（如关键词检索、稠密向量检索、结构化检索（KG或文档图）等）和一个轻量级门控模块，最终答案生成模型。\n    \n- **技术路径：** 系统针对输入问题，先由门控模块（",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "自然语言处理",
+          "检索增强生成",
+          "RAG系统优化"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 6,
+      "cardId": "real_csdn_161266269",
+      "corpusId": "csdn_161266269",
+      "title": "重新定义 AI 生产力：Agent Skills 全链路开发与实战指南",
+      "modality": "webpage",
+      "summary": "重新定义 AI 生产力：Agent Skills 全链路开发与实战指南-CSDN博客\n## 一、灵魂拷问：Skills 会抢走我的饭碗吗？\n每次…",
+      "preview": "重新定义 AI 生产力：Agent Skills 全链路开发与实战指南-CSDN博客\n## 一、灵魂拷问：Skills 会抢走我的饭碗吗？\n每次向团队推行 Skills 时，总会听到这个担忧：“如果我把自己的核心工作流都写成 Skills 让 AI 自动跑，那公司还需要我吗？”\nJudgment）不会\n❌Skills 替代的不是“你”，而是你身上那些重复、机械、容易出错且本不该消耗你精力的“执行任务”。\n✅Skills 无法替代的“你”，是你设计工作流时的经验沉淀，以及你对 AI 执行结果的判断力。这才是你未来的核心壁垒。\n点点点，差距便\n## 二、 一分钟建立核心认知：什么是 Skills？\n简单来说，Skills 是一份结构化的“操作说明书”。它明确告诉 AI Agent：「在什么场景下、按什么步骤、用什么工具、去完成什么任务」。\n你可以把它看作是 Agent 的“技能插卡”，即插即用，拔掉即止。\n| 现实世界的工作方式 | Skills 世界的工作方式 |\n| --- | --- |\n| 《开发操作规范手册》 | `SKILL.md`文件 |\n| 手册封面（包含标题与简介） | YAML Frontmatter（定义`name`与`description`） |\n| 具体操作步骤与规范 | Markdown 正文中的工作流指令 |\n| 附录材料（参考文档、资源库） | 绑定的资源包（`scripts/`或`references/`） |\n关键机制：分级加载（渐进式）Agent 的上下文窗口极其宝贵。Skills 不会一次性把所有细节塞给大模型，而是按需加载。先看简介，确认需要用到这个技能后，再读取详细步骤，既省 Token 又能提高执行的精准度。\n## 三、 如何获取与加载 Skills？\n平台级商店：如 skills.sh（开源自动化工作流）、ClawHub（社区驱动）、SkillsMP（海量数据库语义搜索）。\n垂直平台：如 Aone Skills（研发垂直）、alphashop（电商垂直）。\n2.在常用 Agent 中加载 Skills\n不同的 Agent 平台加载方式略有不同：\nAone Copilot：支持从市场一键安装，或手动将文件夹放入 ~/.aone_copilot/skills/ 目录。\nQCoder：支持项目级管理，将 Skill 放入工程代码库的 .skills/ 目录下即可。\nCLI 工具安装：使用命令行工具（如 aone-kit skill install ）可以实现极客般的一键部署。\n## 四、 实战：5 分钟构建你的第一个 Skill\n一个标准的 Skills 本质上就是一个包含了特定文件的文件夹。其核心骨架如下：\n```\nmy-awesome-skill/├── SKILL.md          ← 唯一必需的灵魂文件！",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "AI Agent开发",
+          "Skills开发"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "对标拆解"
+      }
+    },
+    {
+      "seq": 7,
+      "cardId": "real_obs_00_收件箱_营业执照信息抽取_实验分析报告",
+      "corpusId": "obs_00_收件箱_营业执照信息抽取_实验分析报告",
+      "title": "gold 定稿后改 --gt-dir gold 即为真指标",
+      "modality": "webpage",
+      "summary": "**日期** 2026-05-29 **数据划分** val（95 张执照整图） **GT 口径** silver（百度 API 预标注 + 信…",
+      "preview": "**日期** 2026-05-29　**数据划分** val（95 张执照整图）　**GT 口径** silver（百度 API 预标注 + 信用代码用文件名真值校正，人工 gold 尚未定稿）\n\n---\n## 一、实验配置\n\n| 项         | 配置                                                             |\n| --------- | -------------------------------------------------------------- |\n| 被测模型      | qwen3-vl-chat-8b-instruct（视觉语言模型 VLM）                          |\n| 部署        | 本地 vLLM，OpenAI 兼容接口 `http://192.168.0.194:8000/v1`             |\n| 采样参数      | `temperature=0`、`max_tokens=2048`，其余默认（无 repetition_penalty）   |\n| Prompt 指纹 | `4d766115`（system+user prompt 的 sha1 前 8 位，prompt 一改即变）        |\n| 抽取字段      | 9 个固定字段（顺序固定）：统一社会信用代码、企业名称、类型、住所、法定代表人、注册资本、成立日期、营业期限、经营范围    |\n| 输出格式      | 固定 JSON（`code/data/result/items`），识别不到填 `null`，日期 `YYYY-MM-DD` |\n| GT oracle | 百度「营业执照识别」API（`business_license`），与被测模型不同源（避免循环偏置）             |\n| 信用代码校正    | 文件名内嵌 18 位真实信用代码 → 覆盖百度读错的值（94/95 有真值）                         |\n\n**评测归一化规则**（`eval_metrics.py`，比较前对两侧同样处理）\n\n| 字段 | 归一化 |\n|---|---|\n| 成立日期 | 统一成 `YYYY-MM-DD` |\n| 营业期限 | 串内所有日期归一为 `YYYY-MM-DD`，分隔符统一为「至」 |\n| 注册资本 | 去掉「人民币」「整」、去多余小数零（`100.0000万元`→`100万元`） |\n| 经营范围 | 模糊匹配（SequenceMatcher 相似度 ≥ 0.90 算对） |\n| 其余 | NFKC 全角转半角 + 去空格后精确匹配 |\n\n**判定类别** 正确(tp) / 值错(wrong)",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "计算机视觉",
+          "文档识别",
+          "营业执照识别"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "待定"
+      }
+    },
+    {
+      "seq": 8,
+      "cardId": "real_obs_01_知识库_知识图谱_超大KG_mindmap",
+      "corpusId": "obs_01_知识库_知识图谱_超大KG_mindmap",
+      "title": "🌐 超大 KG（个人知识总图）",
+      "modality": "webpage",
+      "summary": "--- mindmap-plugin: markdown --- # 🌐 超大 KG（个人知识总图） > **触发关键词**：说 \"**超大K…",
+      "preview": "---\n\nmindmap-plugin: markdown\n\n---\n\n\n# 🌐 超大 KG（个人知识总图）\n\n> **触发关键词**：说 \"**超大KG**\" + 一段 LLM 解释 → 自动调用 `super-kg` skill 分类保存。\n> \n> **说明**：这是一个层级化的知识图谱，从宏观领域 → 细分赛道 → 具体问题 → 局部细节，逐层下钻。  \n> **原则**：LLM 的详细解释**全文保留，一字不改**，用 `> [!quote]-` 折叠装载；骨架本身也可点击标题折叠。\n\n---\n\n## 📖 使用说明（折叠 / 展开机制）\n\n> [!info]- 点击展开「如何使用本文档」\n> \n> ### 三层折叠机制\n> \n> | 层级 | 折叠方式 | 默认状态 |\n> |------|---------|---------|\n> | **标题（H2/H3/H4/H5）** | 鼠标悬停标题，点击左侧三角形 | 展开 |\n> | **Callout `[!quote]-`** | 点击 callout 标题行 | **默认折叠** ✓ |\n> | **Callout `[!quote]+`** | 点击 callout 标题行 | 默认展开 |\n> \n> ### 层级约定\n> \n> ```\n> H2 (##)   一级领域       — 例：🧠 AI & 机器学习\n>   H3 (###)   二级方向      — 例：大语言模型 (LLM)\n>     H4 (####)   子赛道       — 例：检索增强生成 (RAG)\n>       H5 (#####)   具体问题    — 例：KG 路径推理的本质\n>         > [!quote]- 子问题标题  — 装 LLM 原文（默认折叠）\n> ```\n> \n> ### 录入新条目的格式\n> \n> ````markdown\n> ##### 具体问题标题\n> \n> > [!quote]- 简短摘要标题（YYYY-MM-DD）\n> > \n> > **来源**：[对话来源 / LLM 模型]  \n> > **关联**：[[相关笔记]] / #tag\n> > \n> > ---\n> > \n> > [LLM 原文，一字不改]\n> ````\n> \n> ### 给 Claude 的指令模板\n> \n> > \"保存这段到知识图谱：[粘贴 LLM 原文]\"  \n> > → Claude 自动判断 L1/L2/L3/L4 位置，追加 `[!quote]-` 折叠块\n\n---\n\n## 🤖 自适应机制（Claude 工作准则）\n\n> [!important]- 点击展开「Claude 每次录入和重组的标准流程」\n> \n> ### Step 1: 录入前必做（每次都要）\n> \n> 1. **读骨",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "知识管理",
+          "个人知识系统",
+          "知识图谱构建",
+          "超大KG设计"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "学习理论"
+      }
+    },
+    {
+      "seq": 9,
+      "cardId": "real_obs_02_科研_ARIS_mNGS_实验记录_2026_03_09_运行结果",
+      "corpusId": "obs_02_科研_ARIS_mNGS_实验记录_2026_03_09_运行结果",
+      "title": "2026-03-09-运行结果",
+      "modality": "webpage",
+      "summary": "--- date: 2026-03-09 tags: [\"research/mNGS\"] --- =======================…",
+      "preview": "---\ndate: 2026-03-09\ntags: [\"research/mNGS\"]\n---\n============================================================\n  Pilot 实验 - 模型: deepseek-chat\n============================================================\n\n[1/5] 加载数据...\n  加载了 1200 条记录\n\n[2/5] 选取代表性样本...\n  选取了 10 条样本：\n    #1 [counterintuitive] FDMS0000002 - mNGS菌种数=103, 标注=P2, 致病菌数=2\n    #2 [counterintuitive] FDMS0000003 - mNGS菌种数=56, 标注=P2, 致病菌数=2\n    #3 [counterintuitive] FDMS0000004 - mNGS菌种数=71, 标注=P2, 致病菌数=1\n    #4 [negative] FDMS0000033 - mNGS菌种数=38, 标注=NEGATIVE, 致病菌数=0\n    #5 [negative] FDMS0000108 - mNGS菌种数=4, 标注=NEGATIVE, 致病菌数=0\n    #6 [negative] FDMS0000150 - mNGS菌种数=5, 标注=NEGATIVE, 致病菌数=0\n    #7 [normal] FDMS0000008 - mNGS菌种数=36, 标注=P2, 致病菌数=2\n    #8 [normal] FDMS0000013 - mNGS菌种数=50, 标注=MIXED, 致病菌数=2\n    #9 [multi_pathogen] FDMS0000022 - mNGS菌种数=71, 标注=MIXED, 致病菌数=3\n    #10 [multi_pathogen] FDMS0000047 - mNGS菌种数=28, 标注=P2, 致病菌数=3\n\n[3/5] 调用 LLM (deepseek-chat)...\n  正在处理第 1/10 条，studyID=FDMS0000002 [counterintuitive]... 完成 (14.3s, 2485 tokens)\n  正在处理第 2/10 条，studyID=FDMS0000003 [counterintuitive]... 完成 (15.4s, 2464 tokens)\n  正在处理第 3/10 条，studyID=FDMS0000004 [counterintuitive]... 完成 (16.8s, 2438 tokens)\n  正在处理第 4/10 条，studyID=F",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "医学",
+          "临床诊断",
+          "宏基因组测序",
+          "mNGS致病菌判读"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 10,
+      "cardId": "real_csdn_162008414",
+      "corpusId": "csdn_162008414",
+      "title": "调查研究-178 Google 官方 Agent Skills 仓库解读：AI Agent 时代，知识正在从「提示词」变成「可安装能力包」",
+      "modality": "webpage",
+      "summary": "## Google 官方 Agent Skills 仓库解读：AI Agent 时代，知识正在从「提示词」变成「可安装能力包」\n- 场景：Goo…",
+      "preview": "## Google 官方 Agent Skills 仓库解读：AI Agent 时代，知识正在从「提示词」变成「可安装能力包」\n- 场景：Google 官方在 GitHub 开源了`google/skills`仓库，把面向 Google Cloud、Gemini API、BigQuery、Cloud Run、GKE、认证、网络可观测性、Well-Architected Framework 的工程知识封装成 Agent 可发现、按需加载、版本化管理的能力包。\n- 结论：`google/skills`不是 SDK、不是 MCP Server，也不是普通 prompt 仓库，而是「Agent 时代的可执行 SOP」。它的真正价值是示范了一种把团队经验沉淀为 Agent 可执行资产的新范式。\n- 产出：解读仓库的四类能力（产品 Skills / Gemini & Agent Platform / Recipe / Well-Architected），拆解`gemini-api`、`cloud-run-basics`、`gke-basics`、`authentication`等典型 skill 的写法；给出 7 条可借鉴的写 skill 原则与 1 张错误速查卡。\n摘要：Google 开源的`google/skills`不是 SDK、不是 MCP Server，也不是普通 prompt 仓库，而是一组面向 Google Cloud、Gemini API、BigQuery、Cloud Run、GKE、认证、网络可观测性和 Well-Architected Framework 的 Agent Skills。它的核心意义是：把工程知识沉淀为 Agent 可以发现、按需加载、版本化管理的能力包。对开发者来说，这个仓库不只适合使用 Google 技术栈时减少 AI 幻觉，也提供了一套「如何把团队经验写成 Agent 可执行资产」的参考。\n一句话说：`google/skills`是 Google 官方维护的 Agent Skills 集合，用来让 AI Agent 在处理 Google 产品和技术任务时，按需加载更准确的工程知识和操作流程。\n它更像「工程知识包」：一个 skill 通常是一个目录，核心文件是`SKILL.md`，里面写清楚这个 skill 是什么、什么时候用、该怎么做、哪些做法不要用、需要参考哪些资料。复杂 skill 还可以带`references/`、`scripts/`、`assets/`等资源。\nAgent Skills 是一种面向 Agent 的开放格式。一个典型目录大概长这样：\n其中最关键的是`SKILL.md`。它通常包含 YAML frontmatter，比如`name`和`description`，以及具体的操作说明。\n`description`",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "AI Agent",
+          "工程实践"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "对标拆解"
+      }
+    },
+    {
+      "seq": 11,
+      "cardId": "real_obs_01_知识库_工程经验_GPU推理部署",
+      "corpusId": "obs_01_知识库_工程经验_GPU推理部署",
+      "title": "GPU 推理部署工程经验",
+      "modality": "webpage",
+      "summary": "--- date: 2026-04-18 tags: [engineering/gpu, engineering/inference, rese…",
+      "preview": "---\ndate: 2026-04-18\ntags: [engineering/gpu, engineering/inference, research/mNGS]\ntype: engineering-experience\n---\n\n# GPU 推理部署工程经验\n\n> **经验来源**：实际部署 14B 模型时的踩坑记录\n> **适用场景**：LLM 本地推理、多卡 vs 单卡决策\n\n---\n\n## 核心原则：LLM 推理是显存带宽瓶颈，不是算力瓶颈\n\n### 为什么？\n\nLLM 推理分两个阶段：\n\n| 阶段 | 操作 | 瓶颈类型 |\n|------|------|----------|\n| **Prefill**（处理输入 prompt） | 矩阵乘法，并行度高 | Compute-bound（算力） |\n| **Decode**（逐 token 生成）| 每步加载整个模型权重 | **Memory-bound（带宽）** |\n\nDecode 阶段每生成一个 token，就需要把**全部模型权重从显存读一遍**。  \n14B 模型 fp16 = 28GB 数据，每 token 都要搬运一次——带宽直接决定速度。\n\n### 实际含义\n\n> 比算力（TFLOPS）更重要的指标是**显存带宽（GB/s）**。\n\n---\n\n## 实战案例：A800 单卡 vs 双 RTX 6000\n\n### 硬件参数对比\n\n| 指标 | A800（单卡） | RTX 6000 Ada × 2 |\n|------|-------------|------------------|\n| 显存带宽 | **2 TB/s** | ~1.92 TB/s（理论上限）|\n| 显存容量 | 80 GB | 48 GB × 2 = 96 GB |\n| 卡间互联 | 不需要 | PCIe（非 NVLink）|\n| 通信开销 | 无 | **每层 AllReduce，实测 -20~40%** |\n\n### 结论：14B 模型 A800 单卡是最优方案\n\n原因链：\n1. 14B fp16 = 28GB → A800 80GB 放得下，**不需要拆分**\n2. 双卡 Tensor Parallelism 每层都要 AllReduce（同步计算结果）\n3. PCIe 连接（非 NVLink）下，AllReduce 开销吃掉 20-40% 理论加速\n4. 单卡带宽 2TB/s > 双卡实际有效带宽 → **单卡反而更快**\n\n---\n\n## 多卡何时有意义？\n\n### ✅ 场景 1：模型太大，单卡放不下\n\n| 模型 | 所需显存（fp16）| 方案 |\n|------|--------------|------|\n| 14B | ~28 GB | 单卡 A800 足够 |\n| 70B | ~140 GB |",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "工程",
+          "GPU推理",
+          "模型部署",
+          "LLM推理优化"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 12,
+      "cardId": "real_obs_img_IMG_4552",
+      "corpusId": "obs_img_IMG_4552",
+      "title": "Obsidian 图片 · IMG_4552.jpg",
+      "modality": "photo",
+      "summary": "图床/粘贴图：IMG_4552.jpg",
+      "preview": "Obsidian 图片：IMG_4552.jpg",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "金融",
+          "银行",
+          "个人理财",
+          "利率产品"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "学习理论"
+      }
+    },
+    {
+      "seq": 13,
+      "cardId": "real_obs_img_Pasted_image_20260604161828",
+      "corpusId": "obs_img_Pasted_image_20260604161828",
+      "title": "Obsidian 图片 · Pasted image 20260604161828.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：Pasted image 20260604161828.png",
+      "preview": "Obsidian 图片：Pasted image 20260604161828.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "多模态模型",
+          "VLM调用优化"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "待定"
+      }
+    },
+    {
+      "seq": 14,
+      "cardId": "real_docx_sr_note",
+      "corpusId": "docx_sr_note",
+      "title": "明晰样例 · 间隔重复 Word 笔记",
+      "modality": "pdf",
+      "summary": "核心机制：提取练习比重复阅读更有效。间隔拉长时，回忆难度上升，记忆痕迹更稳。",
+      "preview": "明晰样例 · 间隔重复笔记\n\n核心机制：提取练习比重复阅读更有效。间隔拉长时，回忆难度上升，记忆痕迹更稳。\n\n边界：材料必须可检验；纯背诵无反馈时收益下降。\n\n下一步：把本周概念拆成 5 张问答卡，隔天自测。",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "认知科学",
+          "学习方法",
+          "记忆技巧",
+          "间隔重复"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "待定"
+      }
+    },
+    {
+      "seq": 15,
+      "cardId": "real_obs_01_知识库_工程经验_SDD需求文档闭环管理",
+      "corpusId": "obs_01_知识库_工程经验_SDD需求文档闭环管理",
+      "title": "SDD 需求文档闭环管理",
+      "modality": "webpage",
+      "summary": "--- date: 2026-04-18 tags: [engineering/sdd, engineering/workflow] type:…",
+      "preview": "---\ndate: 2026-04-18\ntags: [engineering/sdd, engineering/workflow]\ntype: engineering-experience\n---\n\n# SDD 需求文档闭环管理\n\n> **核心思想**：代码报错 → 需求文档修正 → 长期记忆沉淀，形成 SDD 闭环\n\n---\n\n## 一、两个核心工作流\n\n### Workflow A：代码报错 → 长期记忆\n\n**场景**：调试时遇到 bug，修好后随手记录，沉淀为可复用的工程经验。\n\n**流程**：\n```\n代码报错\n   ↓\n定位原因（参数名错误 / 逻辑矛盾 / 依赖版本冲突...）\n   ↓\n修复\n   ↓\n记录：错误现象 + 根因 + 修复方法 + 教训\n   ↓\n写入工程经验库（本 vault）→ 长期记忆\n```\n\n**价值**：同类错误第二次遇到，直接查记录，不用再踩一遍。\n\n---\n\n### Workflow B：代码报错 → 反向修正需求文档（SDD 闭环）\n\n**场景**：按需求文档实现时出现报错，定位后发现是**需求文档本身存在矛盾**。\n\n**核心原则**：\n> **实现通过测试 → 实现是对的 → 文档向实现对齐**  \n> 不是\"改代码去符合文档\"，而是\"改文档去符合已验证的代码\"\n\n**流程**：\n```\n代码报错\n   ↓\n判断根因：\n  ├── 实现有 bug？→ 修代码\n  └── 需求文档与实现矛盾？→ 修文档（Workflow B）\n          ↓\n     最小修改原则：\n       - 只消除矛盾，不扩展功能\n       - 不改变原有功能语义\n       - 改动范围最小化\n          ↓\n     记录变更到 CHANGELOG.md：\n       说明\"为什么改\"（不只是\"改了什么\"）\n```\n\n---\n\n## 二、真实案例：Makefile 参数名矛盾\n\n**问题**：\n- Makefile 写的是 `--n 5` 和 `--output-dir`\n- CLI 实际参数是 `--limit` 和 `--output`\n\n**根因判断**：\n- 代码已通过 239 个测试 → 实现是对的\n- 问题出在需求文档/Makefile 没有跟随代码更新\n\n**处理方式**：\n- ✅ 修改 Makefile（文档侧）：`--n 5` → `--limit 5`，`--output-dir` → `--output`\n- ✅ 在 CHANGELOG 记录：参数名与实现不一致，向实现对齐\n- ❌ 不修改已通过测试的代码逻辑\n\n**教训**：\n> 需求文档是**活的**。实现演化时，文档必须跟上；如果没跟上，以代码为准。\n\n---\n\n## 三、判断\"改文档\"还是\"改代码\"的决策树\n\n```\n出现",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "工程",
+          "软件开发",
+          "需求管理",
+          "SDD闭环管理"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 16,
+      "cardId": "real_obs_img_IMG_6727",
+      "corpusId": "obs_img_IMG_6727",
+      "title": "Obsidian 图片 · IMG_6727.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：IMG_6727.png",
+      "preview": "Obsidian 图片：IMG_6727.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "企业软件",
+          "低代码平台",
+          "Power Platform 选型"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "学习理论"
+      }
+    },
+    {
+      "seq": 17,
+      "cardId": "real_obs_img_Pasted_image_20260617143342",
+      "corpusId": "obs_img_Pasted_image_20260617143342",
+      "title": "Obsidian 图片 · Pasted image 20260617143342.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：Pasted image 20260617143342.png",
+      "preview": "Obsidian 图片：Pasted image 20260617143342.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "信息管理",
+          "知识库",
+          "Obsidian",
+          "搜索优化"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "对标拆解"
+      }
+    },
+    {
+      "seq": 18,
+      "cardId": "real_obs_01_知识库_工程经验_大模型工程经验学习资源",
+      "corpusId": "obs_01_知识库_工程经验_大模型工程经验学习资源",
+      "title": "大模型工程经验学习资源地图",
+      "modality": "webpage",
+      "summary": "--- date: 2026-04-18 tags: [engineering/gpu, engineering/inference, reso…",
+      "preview": "---\ndate: 2026-04-18\ntags: [engineering/gpu, engineering/inference, resource/tool]\ntype: resource-map\n---\n\n# 大模型工程经验学习资源地图\n\n> **目的**：找到\"只有跑过代码才知道\"的实战经验来源，尤其是本地部署、GPU 推理、量化优化方向\n\n---\n\n## 一、社区资源（最核心）\n\n### r/LocalLLaMA（Reddit）\n**链接**：https://www.reddit.com/r/LocalLLaMA/  \n**性质**：全球最活跃的本地 LLM 工程师社区  \n**为什么有价值**：\n- 真实用户的踩坑经验，不是广告软文\n- 硬件实测对比（\"我用 M3 Pro 跑 Qwen3-30B 速度是...\"）\n- 量化方案横评，社区投票出的最佳实践\n- 新模型发布后 24 小时内就有人实测报告\n\n**代表性信息**：\n- DeepSeek R1 发布后社区实测：推理质量接近 GPT-4，但本地可跑\n- Apple Silicon 被公认为消费级最佳 LLM 平台（统一内存架构更高效）\n- \"先跑 8B，够用就别升\"——社区共识\n\n---\n\n### 知乎（中文工程圈）\n**代表性栏目**：\n- [长篇白话解读 vLLM：让大模型推理快得飞起的\"黑魔法\"](https://zhuanlan.zhihu.com/p/1891089721192599865) — vLLM 原理深度解析\n- [vLLM 在大模型推理中的显存分析——以 Qwen3-32B 为例](https://zhuanlan.zhihu.com/p/1947229675689603831) — 实战显存分析\n- [大语言模型推理加速：硬件视角的全面解析](https://zhuanlan.zhihu.com/p/1895888543127154854) — 硬件视角系统讲解\n- [混合推理 Qwen3: vLLM+量化加速实测](https://zhuanlan.zhihu.com/p/1920424559649203883) — 最新实测数据\n\n**搜索技巧**：知乎搜索 `vLLM 实战`、`大模型推理 显存`、`量化部署`，按\"最新\"排序\n\n---\n\n### CSDN / 掘金（中文开发者）\n- [全网最全！2025 年本地化部署大模型保姆级避坑指南](https://blog.csdn.net/m0_57081622/article/details/147756825) — 含配置/价格/速度/场景\n- 搜索关键词：`大模型 本地部署 避坑`、`vLLM 参数配置`\n\n---\n\n## 二、技术博客 / 指南（系统性强）\n\n### 英文综合指南\n| 资源 | 特色 | 链接",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "工程",
+          "大模型工程",
+          "本地部署",
+          "推理优化"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 19,
+      "cardId": "real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+      "corpusId": "obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+      "title": "跳出框架的创新方向探索",
+      "modality": "webpage",
+      "summary": " > 日期：2026-04-19 15:35 | 主题：不从当前问题出发，从其他领域找能解决我们问题的方法 ## 当前困境 PPR/Contra…",
+      "preview": "# 跳出框架的创新方向探索\n\n> 日期：2026-04-19 15:35 | 主题：不从当前问题出发，从其他领域找能解决我们问题的方法\n\n## 当前困境\n\nPPR/Contrastive/Bayesian 三种\"给 LLM 更多统计分析\"的方法全部失败。\n根因：KG 数据质量（小样本）不足以产生可靠的外部信号。\n给 LLM 加噪声不如让它自己推理。\n\n**需要换思路：不是\"如何让 LLM 更好地读 KG\"，而是\"有什么方法能本质上改变 KG 与 LLM 的交互方式\"。**\n\n---\n\n## 一、从知识图谱领域的方法出发\n\n### 1.1 Graph Embedding → KG 信息压缩为向量\n\n**方法**：不把 KG 文本化（\"疾病关联：败血症\"），而是把 KG 图结构编码为向量，注入 LLM。\n\n```\n传统: KG → 文本 → LLM prompt (token 粒度)\n创新: KG → Graph Embedding → LLM hidden state (向量粒度)\n\n具体:\n  1. 用 TransE/RotatE 在 KG-01/03/05 上训练物种 embedding\n  2. 每个物种得到一个 d 维向量，编码了它在图中的全部关系\n  3. 作为 soft prompt 注入 LLM（类似 P-Tuning）\n```\n\n**优势**：不占 token 预算，不受文本化信息损失。\n**问题**：需要 LLM 微调（当前用 vLLM 推理，不训练）。\n**论文**：KG-enhanced P-Tuning for Clinical LLM (NeurIPS/ICLR)\n\n### 1.2 Knowledge Graph Completion → 补全缺失关系\n\n**方法**：KG-01 只有 10% 物种有疾病关联。不是检索策略的问题，是知识不完整。用 LLM 自身来补全 KG。\n\n```\n已知: 鲍曼不动杆菌 → CAUSES_DISEASE → 败血症 (KG-01)\n缺失: CMV → ??? → ??? (KG-01 中无任何疾病关联)\n\n补全:\n  Prompt: \"根据医学知识，CMV（巨细胞病毒）在新生儿中可能导致哪些疾病？\"\n  LLM: \"CMV 可导致先天性 CMV 感染、肝炎、脑炎、视网膜炎...\"\n  → 生成新的 CAUSES_DISEASE 边 → 扩充 KG-01\n  → 用已有的 489 条边做验证\n```\n\n**优势**：直接解决 KG 覆盖率 10% 的根本问题。\n**论文**：LLM-driven KG Completion for Low-coverage Clinical Knowledge (KDD/WWW)\n\n### 1.3 Subgraph Retrieval → 检索子图而非三元组\n\n**方",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "自然语言处理",
+          "知识图谱与大模型交互"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "待定"
+      }
+    },
+    {
+      "seq": 20,
+      "cardId": "real_obs_img_IMG_6728",
+      "corpusId": "obs_img_IMG_6728",
+      "title": "Obsidian 图片 · IMG_6728.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：IMG_6728.png（大图仅索引）",
+      "preview": "Obsidian 图片：IMG_6728.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "数据分析",
+          "低代码平台",
+          "Power Apps vs Rayfin"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "素材金句"
+      }
+    },
+    {
+      "seq": 21,
+      "cardId": "real_obs_img_Pasted_image_20260618110757",
+      "corpusId": "obs_img_Pasted_image_20260618110757",
+      "title": "Obsidian 图片 · Pasted image 20260618110757.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：Pasted image 20260618110757.png",
+      "preview": "Obsidian 图片：Pasted image 20260618110757.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "工业自动化",
+          "控制系统",
+          "安全功能",
+          "故障诊断"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 22,
+      "cardId": "real_obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "corpusId": "obs_02_科研_RAG_纯文本RAG_SOTA总结",
+      "title": "纯文本RAG-SOTA总结",
+      "modality": "webpage",
+      "summary": "--- date: 2026-04-15 tags: [\"research/RAG\"] --- 我可以把**“纯文本RAG”学术界最前沿的架构谱…",
+      "preview": "---\ndate: 2026-04-15\ntags: [\"research/RAG\"]\n---\n我可以把**“纯文本RAG”学术界最前沿的架构谱系**（检索范式、重排/融合、生成控制、评测与安全）系统梳理出来，并逐一对你这个**诊断系统**给出落地适配建议。为避免我按错约束，先确认两点关键背景。\n\n[1 tool called]\n\n我会先快速检索一下近两年（到 2026 年初仍然热的）RAG论文/方案清单，确保“前沿/热门”不漏；然后按**检索(稀疏/稠密/混合) → 重排/融合 → 生成端纠错与可追溯**三条主线总结，并针对你当前数据（指南/论文/FAQ + 云API生成）给出推荐组合。\n\n[6 tools called]\n\n### 你记得的“稀疏性”是什么？\n你说的很可能是**稀疏检索（Sparse Retrieval）**：典型是 **BM25**（关键词/术语硬匹配）或“学习型稀疏检索”如 **SPLADE / uniCOIL**。在医疗里它的价值非常大：**药名、病名、指标缩写**这类“必须一字不差”的匹配，纯向量（稠密）有时会漂。\n\n---\n\n### 纯文本RAG：学术界最热门/前沿的架构谱系（按模块拆）\n下面每条我都给**内部算法/模型** + **对你诊断项目（指南/论文/FAQ + 云端LLM）适配建议**。\n\n### 1) 检索范式：稀疏 / 稠密 / 混合（当前主流必选）\n- **稀疏检索（Sparse）**\n  - **算法/模型**：BM25；SPLADE（学习型稀疏扩展）；uniCOIL（token级权重）。\n  - **适配你项目**：强烈建议保留一条稀疏通道来兜底“术语硬匹配”（指南条款编号、药品通用名、缩写、试验名称）。\n- **稠密检索（Dense embedding）**\n  - **算法/模型**：DPR、Contriever、GTR、E5 系列、BGE 系列；云端常用 `text-embedding-3-large/small`。\n  - **适配你项目**：适合“症状口语→医学表达”的语义召回（比如“胸口闷”召回“胸闷/心绞痛鉴别”段落）。\n- **混合检索（Hybrid）= 稀疏 + 稠密 + 融合（生产与论文都最常见）**\n  - **算法**：RRF（Reciprocal Rank Fusion）、线性加权、学习融合；同时跑 BM25 与向量召回。\n  - **模型**：**BGE-M3**这类可同时支持多检索信号（常被用于“一个模型覆盖多粒度/多语种/多信号”的工程化）。\n  - **适配你项目**：你目前数据包含指南/论文/FAQ，文风差异大——混合检索比单一路线更稳，尤其对“论文标题/缩写/药名”很关键。\n\n---\n\n### 2) 多向量/晚交互检索（Late Interaction / Multi-V",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "人工智能",
+          "自然语言处理",
+          "检索增强生成",
+          "医疗RAG"
+        ],
+        "polarity": "positive_exemplar",
+        "stance": "imitate",
+        "purposeLabel": "资料收藏"
+      }
+    },
+    {
+      "seq": 23,
+      "cardId": "real_obs_img_Pasted_image_20260604164632",
+      "corpusId": "obs_img_Pasted_image_20260604164632",
+      "title": "Obsidian 图片 · Pasted image 20260604164632.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：Pasted image 20260604164632.png",
+      "preview": "Obsidian 图片：Pasted image 20260604164632.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "数据处理",
+          "文本切分",
+          "MinerU产出"
+        ],
+        "polarity": "mixed",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "反例避坑"
+      }
+    },
+    {
+      "seq": 24,
+      "cardId": "real_obs_img_Pasted_image_20260604134823",
+      "corpusId": "obs_img_Pasted_image_20260604134823",
+      "title": "Obsidian 图片 · Pasted image 20260604134823.png",
+      "modality": "photo",
+      "summary": "图床/粘贴图：Pasted image 20260604134823.png",
+      "preview": "Obsidian 图片：Pasted image 20260604134823.png",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "数据科学",
+          "测评构建",
+          "数据集构建",
+          "项目文档分析"
+        ],
+        "polarity": "neutral_observe",
+        "stance": "transform_ok",
+        "purposeLabel": "素材金句"
+      }
+    },
+    {
+      "seq": 25,
+      "cardId": "real_pk_Skill路由问题分析",
+      "corpusId": "pk_Skill路由问题分析",
+      "title": "Skill路由问题分析",
+      "modality": "webpage",
+      "summary": "WorkBuddy Skill 路由问题深度分析 WorkBuddy Skill 路由问题深度分析 12 已安装 Skill（4 内置 + 8 …",
+      "preview": "WorkBuddy Skill 路由问题深度分析 WorkBuddy Skill 路由问题深度分析 12 已安装 Skill（4 内置 + 8 用户） 4 金融领域重叠 Skill 3 \"严禁绕过\" 互相冲突的声明 0 形式化路由优先级机制 一、当前路由机制的工作原理 WorkBuddy 的 Skill 路由 不是 一个独立的调度组件，而是嵌入在系统 Prompt 中的一段 LLM 指令。其核心流程如下： 用户输入 \"今天 AI 圈有啥\" LLM 关键词匹配 description + when_to_use aihot ✅ kg-schema ❌ wb-finance ❌ 关键：路由决策 = LLM 根据 description 字段做语义匹配 不是确定性规则引擎，不是 Intent Classifier，不是 Router LLM 这就是所有路由问题的根源 路由发生在两个层面： 第一层：Skill 间路由 LLM 阅读所有可用 Skill 的 description 和 when_to_use 字段， 自行判断 哪个 Skill 匹配用户意图。匹配逻辑是语义相似度 + 关键词命中，没有 formal router。 第二层：Skill 内路由 Skill 加载后，按 Skill 内部的路由规则（如 aihot 的\"默认精选 / 日报 / 全量\"分流、 westock-tool 的 filter/strategy/label/event/ranking 五入口分流）做二次路由。 二、核心问题一：多 Skill 领域重叠 + 优先级声明互相冲突 金融领域是重灾区 — 4 个 Skill 同时覆盖，且每个都声明自己\"最高优先级\"或\"禁止绕过\"： 用户：\"分析下茅台\" wb-finance-skill 声明：\"优先级高于所有其他金融 skill\" \"必须第一时间优先加载本 skill\" neodata-financial-search 声明：\"必须优先使用本 skill 作为数据源\" \"所有金融数据查询，必须优先使用\" westock-data 声明：\"本 Skill 即为权威来源\" \"禁止用 web_search / 其它 finance Skill 替代\" westock-tool 声明：\"本技能只做批量筛选\" \"严禁绕过本 Skill\" ⚠ 四个 Skill 各自声明最高优先级，LLM 在系统 Prompt 层面没有形式化的优先级解析机制 问题本质 ：Skill 的优先级声明是\"软约束\"——写在 description 里的自然语言指令，依赖 LLM 的注意力机制来遵从。没有硬性的路由规则引擎来保证执行顺序。当 4 个 Skill 都声称自己优先时，LLM 可能随机选一个，也可能全部加载导致上下文浪费。 三、核心问题二：关键词匹配的脆弱性 Skill 的触",
+      "imageUrl": null,
+      "silver": {
+        "domainPath": [
+          "技术",
+          "人工智能",
+          "系统架构",
+          "Skill路由机制"
+        ],
+        "polarity": "negative_caution",
+        "stance": "do_not_imitate_failure_path",
+        "purposeLabel": "对标拆解"
+      }
+    }
+  ]
+}

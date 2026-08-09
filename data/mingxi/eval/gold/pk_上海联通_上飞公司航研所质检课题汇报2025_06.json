@@ -1,0 +1,111 @@
+{
+  "cardId": "real_pk_上海联通_上飞公司航研所质检课题汇报2025_06",
+  "corpusId": "pk_上海联通_上飞公司航研所质检课题汇报2025_06",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "工业与制造",
+      "航空制造",
+      "质量检测"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "neutral_observe",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "待定",
+    "stance": "transform_ok",
+    "actionIntents": [
+      "summarize",
+      "create_flashcards"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.工业与制造.航空制造.质量检测",
+        "label": "质量检测",
+        "path": [
+          "工程与技术科学",
+          "工业与制造",
+          "航空制造",
+          "质量检测"
+        ],
+        "confidence": 0.85
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "neutral_observe",
+      "confidence": 0.9,
+      "signals": [
+        "文件过大未全文抽取",
+        "汇报"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "summarize",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "create_flashcards",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "transform_ok",
+    "purposeSuggestion": "待定",
+    "overallConfidence": 0.85,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "上海联通与上飞公司航研所合作的质检课题汇报，因文件过大未完整提取内容。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "待定",
+    "casePolarity": "neutral",
+    "functionalForm": "经验帖",
+    "stance": "transform_ok",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:25:26.552Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "manual_rebalance_seed_20260804",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "待定",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    }
+  }
+}

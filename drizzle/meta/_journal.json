@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1785742526722,
+      "tag": "0000_flippant_sharon_ventura",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1785744315101,
+      "tag": "0001_mysterious_corsair",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1786111280127,
+      "tag": "0002_powerful_enchantress",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1786112476741,
+      "tag": "0003_fine_princess_powerful",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1786113532425,
+      "tag": "0004_slippery_clint_barton",
+      "breakpoints": true
+    }
+  ]
+}

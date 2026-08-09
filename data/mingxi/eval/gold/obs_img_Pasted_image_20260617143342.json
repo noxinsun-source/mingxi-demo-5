@@ -1,0 +1,125 @@
+{
+  "cardId": "real_obs_img_Pasted_image_20260617143342",
+  "corpusId": "obs_img_Pasted_image_20260617143342",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "生活与职业",
+      "知识管理",
+      "知识库",
+      "Obsidian"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "negative_caution",
+    "userGoals": [
+      "avoid",
+      "learn"
+    ],
+    "purposeLabel": "对标拆解",
+    "stance": "do_not_imitate_failure_path",
+    "actionIntents": [
+      "extract_lesson",
+      "tag_warning",
+      "create_checklist"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "生活与职业.知识管理.知识库.Obsidian",
+        "label": "Obsidian",
+        "path": [
+          "生活与职业",
+          "知识管理",
+          "知识库",
+          "Obsidian"
+        ],
+        "confidence": 0.85
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "negative_caution",
+      "confidence": 0.9,
+      "signals": [
+        "无 caption 图片完全搜不到",
+        "caption 是唯一入口，但只做到 17%",
+        "对表是负优化",
+        "44% vs 原文85%",
+        "避雷"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      },
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_lesson",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "tag_warning",
+        "priority": 2,
+        "autoEligible": true
+      },
+      {
+        "id": "create_checklist",
+        "priority": 3,
+        "autoEligible": true
+      }
+    ],
+    "stance": "do_not_imitate_failure_path",
+    "purposeSuggestion": "对标拆解",
+    "overallConfidence": 0.85,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "在 Obsidian 中使用 caption 对图片搜索有效但对表格搜索是负优化，需谨慎使用",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "对标拆解",
+    "casePolarity": "negative",
+    "functionalForm": "经验帖",
+    "stance": "do_not_imitate_failure_path",
+    "userGoalText": "avoid,learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:29:05.256Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "manual_rebalance_seed_20260804",
+    "purposeRebalance": {
+      "from": "反例避坑",
+      "to": "对标拆解",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    }
+  }
+}

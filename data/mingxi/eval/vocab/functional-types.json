@@ -1,0 +1,18 @@
+{
+  "version": "2026.08.04-v2",
+  "note": "已删除 todo（避免与用途/待办混淆）；形态=内容客观类型，AI 自动",
+  "labels": [
+    { "id": "concept", "ui": "概念讲解" },
+    { "id": "fact", "ui": "事实" },
+    { "id": "procedure", "ui": "教程步骤" },
+    { "id": "experience", "ui": "经验帖" },
+    { "id": "opinion", "ui": "观点" },
+    { "id": "evidence", "ui": "论文资料" },
+    { "id": "resource", "ui": "资料入口" },
+    { "id": "question", "ui": "问题" },
+    { "id": "template", "ui": "模板" },
+    { "id": "meeting", "ui": "会议" },
+    { "id": "clip", "ui": "剪藏" }
+  ],
+  "removed": [{ "id": "todo", "reason": "易与 C2/待办混淆；行动项改成件后抽取" }]
+}

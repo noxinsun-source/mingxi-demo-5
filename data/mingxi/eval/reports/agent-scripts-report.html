@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
+<title>明晰 P3 Agent 剧本评测</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#f6f3ec;color:#1a1f18;padding:2rem;line-height:1.5}
+h1{font-family:Georgia,serif}.ok{color:#1a4f3c}.bad{color:#8f3a2c;font-weight:600}
+table{border-collapse:collapse;width:100%;background:#fff;margin:1rem 0}
+td,th{border:1px solid #d2cdc0;padding:.4rem .55rem;font-size:.9rem;text-align:left}
+.m{display:inline-block;background:#fff;border:1px solid #d2cdc0;border-radius:10px;padding:.8rem 1.2rem;margin:.3rem}
+</style></head><body>
+<h1>明晰 P3 Agent 剧本评测</h1>
+<p>方案权威：<code>docs/mingxi/20-agent-eval-scheme-v2.md</code> · dataset <code>2026.08.04-silver-v2.1-rebalanced</code> · 2026-08-04T15:16:52.390Z</p>
+<div class="m"><b class="ok">8/8</b><br/>剧本通过率 100%</div>
+<div class="m"><b class="ok">P0</b><br/>护栏 PASS</div>
+<ul><li class="ok">R2_confirm_gate: PASS</li><li class="ok">R4_citations: PASS</li><li class="ok">R1_stance: PASS</li></ul>
+<table><tr><th>ID</th><th>标题</th><th>结果</th><th>意图</th><th>召回</th><th>节点</th><th>失败断言</th></tr><tr class="ok">
+      <td>S1-001</td><td>评测脏活：正反对照梳链</td><td>PASS</td>
+      <td>reline</td><td>6</td><td>225</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S1-002</td><td>Agent 技能：避雷与正例对照</td><td>PASS</td>
+      <td>reline</td><td>4</td><td>147</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S2-001</td><td>按时间线梳理 Agent / harness 笔记</td><td>PASS</td>
+      <td>reline</td><td>4</td><td>252</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S3-001</td><td>理论/技能与落地产品对照</td><td>PASS</td>
+      <td>reline</td><td>5</td><td>223</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S4-001</td><td>用途确认门 → 成件凭据</td><td>PASS</td>
+      <td>organize</td><td>1</td><td>0</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S5-001</td><td>模糊话术必须澄清</td><td>PASS</td>
+      <td>clarify</td><td>0</td><td>0</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S6-001</td><td>锁定节点后重排保持不变</td><td>PASS</td>
+      <td>reline</td><td>0</td><td>286</td>
+      <td></td>
+    </tr><tr class="ok">
+      <td>S8-001</td><td>端到端烟雾：澄清 → 对照重排计划</td><td>PASS</td>
+      <td>reline</td><td>2</td><td>18</td>
+      <td></td>
+    </tr></table>
+<p>路径：<code>data/mingxi/eval/scenarios/</code> · runner <code>scripts/mingxi/run-agent-scripts.mjs</code></p>
+</body></html>

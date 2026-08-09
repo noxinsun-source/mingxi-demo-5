@@ -1,0 +1,42 @@
+{
+  "total": 2,
+  "passed": 2,
+  "passRate": 1,
+  "results": [
+    {
+      "id": "cap_paste_text",
+      "pass": true,
+      "noteId": "CAN_MSEV0R9G_Q198",
+      "steps": [
+        "\"capture_envelope\"",
+        "\"normalize\"",
+        "\"domain_tag_skipped\""
+      ],
+      "domainPath": [
+        "未分类",
+        "待标注"
+      ],
+      "warnings": [
+        "tag_fail:fetch failed"
+      ]
+    },
+    {
+      "id": "cap_url_skip_net",
+      "pass": true,
+      "noteId": "CAN_MSEV0RAW_TG8M",
+      "steps": [
+        "\"capture_envelope\"",
+        "\"normalize\"",
+        "\"domain_tag_skipped\""
+      ],
+      "domainPath": [
+        "未分类",
+        "待标注"
+      ],
+      "warnings": [
+        "tag_fail:fetch failed"
+      ]
+    }
+  ],
+  "ranAt": "2026-08-04T16:15:45.465Z"
+}

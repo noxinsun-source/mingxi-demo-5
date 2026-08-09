@@ -1,0 +1,287 @@
+.hcal-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 50% 35% at 0% 0%, #e4efe8, transparent 55%),
+    #f2efe6;
+  color: #1c211e;
+  font-family: "IBM Plex Sans", "PingFang SC", "Helvetica Neue", sans-serif;
+}
+.hcal-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid #cfc7b8;
+  background: rgba(255, 253, 248, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.hcal-top h1 {
+  margin: 0.15rem 0;
+  font-family: "Source Han Serif SC", "Noto Serif SC", "Songti SC", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.hcal-top p {
+  margin: 0;
+  color: #5e6661;
+  font-size: 0.82rem;
+  max-width: 36rem;
+}
+.hcal-back {
+  color: #0f6b4c;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+.hcal-top-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.hcal-top-actions label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.72rem;
+  color: #5e6661;
+}
+.hcal-top-actions input {
+  border: 1px solid #cfc7b8;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  width: 7rem;
+  font: inherit;
+}
+.hcal-top-actions button,
+.hcal-nav button,
+.hcal-silver button {
+  border: 1px solid #cfc7b8;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+.hcal-top-actions button.primary,
+.hcal-nav button.primary {
+  background: #1c211e;
+  color: #fff;
+  border-color: #1c211e;
+}
+.hcal-msg {
+  margin: 0.65rem 1.25rem 0;
+  padding: 0.55rem 0.75rem;
+  border-radius: 10px;
+  background: #d8ebe3;
+  color: #0f6b4c;
+  font-size: 0.82rem;
+}
+.hcal-body {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 0;
+  min-height: calc(100vh - 96px);
+}
+.hcal-rail {
+  border-right: 1px solid #cfc7b8;
+  padding: 0.6rem;
+  overflow: auto;
+  max-height: calc(100vh - 96px);
+  background: #fffdf8;
+}
+.hcal-rail button {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  border-radius: 8px;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.35rem;
+  margin-bottom: 2px;
+}
+.hcal-rail button em {
+  font-style: normal;
+  font-size: 0.72rem;
+  color: #8a4b12;
+}
+.hcal-rail button span {
+  font-size: 0.74rem;
+  color: #5e6661;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hcal-rail button.is-on {
+  background: #ebe6da;
+}
+.hcal-rail button.is-done span {
+  color: #0f6b4c;
+}
+.hcal-main {
+  padding: 1rem 1.25rem 2.5rem;
+  max-width: 820px;
+}
+.hcal-card {
+  background: #fffdf8;
+  border: 1px solid #cfc7b8;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+}
+.hcal-card-meta {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.72rem;
+  color: #5e6661;
+}
+.hcal-card h2 {
+  margin: 0.35rem 0;
+  font-size: 1.15rem;
+  font-family: "Source Han Serif SC", "Songti SC", Georgia, serif;
+}
+.hcal-sum {
+  margin: 0;
+  color: #5e6661;
+  font-size: 0.86rem;
+}
+.hcal-img {
+  margin-top: 0.65rem;
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 10px;
+  object-fit: contain;
+  background: #eee;
+}
+.hcal-preview {
+  margin: 0.7rem 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  max-height: 180px;
+  overflow: auto;
+  background: #f6f1e8;
+  border-radius: 8px;
+  padding: 0.65rem;
+  font-family: inherit;
+}
+.hcal-silver {
+  margin: 0.75rem 0;
+  padding: 0.55rem 0.7rem;
+  border-radius: 10px;
+  background: #e2eaf3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.78rem;
+}
+.hcal-silver strong {
+  margin-right: 0.2rem;
+}
+.hcal-block {
+  margin-top: 0.9rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #cfc7b8;
+  border-radius: 12px;
+  background: #fffdf8;
+}
+.hcal-block h3 {
+  margin: 0 0 0.45rem;
+  font-size: 0.92rem;
+}
+.hcal-block em {
+  display: block;
+  font-style: normal;
+  font-size: 0.72rem;
+  color: #5e6661;
+  margin: 0.45rem 0 0.25rem;
+}
+.hcal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.hcal-chips button {
+  border: 1px solid #cfc7b8;
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.hcal-chips button.is-on {
+  background: #1c211e;
+  color: #fff;
+  border-color: #1c211e;
+}
+.hcal-path-now {
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+.hcal-path-now code {
+  background: #efe9dc;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+.hcal-l34 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+}
+.hcal-l34 input,
+.hcal-comment {
+  border: 1px solid #cfc7b8;
+  border-radius: 8px;
+  padding: 0.4rem 0.55rem;
+  font: inherit;
+  width: 100%;
+}
+.hcal-hint {
+  font-size: 0.76rem;
+  color: #8a4b12;
+}
+.hcal-block.row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.hcal-unsure {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.hcal-nav {
+  display: flex;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+@media (max-width: 860px) {
+  .hcal-body {
+    grid-template-columns: 1fr;
+  }
+  .hcal-rail {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+    max-height: none;
+    border-right: 0;
+    border-bottom: 1px solid #cfc7b8;
+  }
+  .hcal-rail button {
+    min-width: 9rem;
+    margin: 0;
+  }
+  .hcal-l34 {
+    grid-template-columns: 1fr;
+  }
+  .hcal-top {
+    flex-direction: column;
+  }
+}

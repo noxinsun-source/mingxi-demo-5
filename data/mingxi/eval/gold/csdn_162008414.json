@@ -1,0 +1,119 @@
+{
+  "cardId": "real_csdn_162008414",
+  "corpusId": "csdn_162008414",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "Agent",
+      "工程实践"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure",
+      "clip"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn",
+      "park"
+    ],
+    "purposeLabel": "对标拆解",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.Agent.工程实践",
+        "label": "工程实践",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "Agent",
+          "工程实践"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "推荐",
+        "最佳实践",
+        "可复用",
+        "示范",
+        "价值",
+        "参考"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "park",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "对标拆解",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "Google 官方开源的 Agent Skills 仓库将工程知识封装为可安装、可版本管理的能力包，为 AI Agent 提供可执行的 SOP，是团队经验沉淀与复用的典范。",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "对标拆解",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn,park",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:26:25.960Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

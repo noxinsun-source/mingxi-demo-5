@@ -1,0 +1,26 @@
+{
+  "id": "S8-001",
+  "version": "2026.08.04-eval-v2",
+  "shape": "S8_e2e",
+  "title": "端到端烟雾：澄清 → 对照重排计划",
+  "corpus": {
+    "poolCardIds": [
+      "real_xhs_shot_eval_dirty_work",
+      "real_csdn_162008414",
+      "real_web_pep8"
+    ]
+  },
+  "steps": [
+    { "utterance": "嗯", "assertIntent": "clarify" },
+    {
+      "utterance": "按正反对照重排评测避雷",
+      "assertIntent": "reline"
+    }
+  ],
+  "utterance": "按正反对照重排评测避雷",
+  "assertions": [
+    { "type": "e2e_steps" },
+    { "type": "retrieve_hits_min", "n": 1 },
+    { "type": "awaiting_approval" }
+  ]
+}

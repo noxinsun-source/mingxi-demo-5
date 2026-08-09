@@ -1,0 +1,120 @@
+{
+  "cardId": "real_obs_img_Pasted_image_20260604164632",
+  "corpusId": "obs_img_Pasted_image_20260604164632",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "数据科学",
+      "文本切分",
+      "MinerU产出"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "mixed",
+    "userGoals": [
+      "learn",
+      "avoid"
+    ],
+    "purposeLabel": "反例避坑",
+    "stance": "do_not_imitate_failure_path",
+    "actionIntents": [
+      "extract_lesson",
+      "tag_warning",
+      "create_checklist"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.数据科学.文本切分.MinerU产出",
+        "label": "MinerU产出",
+        "path": [
+          "工程与技术科学",
+          "数据科学",
+          "文本切分",
+          "MinerU产出"
+        ],
+        "confidence": 0.9
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "mixed",
+      "confidence": 0.85,
+      "signals": [
+        "14份齐全",
+        "补充了4份",
+        "10份能成功切块",
+        "另外4份触发了chunker的聚类bug",
+        "切不了块",
+        "这轮出题/评测覆盖的是那10份"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_lesson",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "tag_warning",
+        "priority": 2,
+        "autoEligible": true
+      },
+      {
+        "id": "create_checklist",
+        "priority": 3,
+        "autoEligible": true
+      }
+    ],
+    "stance": "do_not_imitate_failure_path",
+    "purposeSuggestion": "反例避坑",
+    "overallConfidence": 0.9,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "MinerU产出的14份完整MD中，10份可成功切块用于评测，另有4份因chunker聚类bug无法切分，需注意避雷。",
+      "heuristic": "neutral_observe"
+    }
+  },
+  "utility": {
+    "purposeLabel": "反例避坑",
+    "casePolarity": "mixed",
+    "functionalForm": "经验帖",
+    "stance": "do_not_imitate_failure_path",
+    "userGoalText": "learn,avoid",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:29:23.789Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

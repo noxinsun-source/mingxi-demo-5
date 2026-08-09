@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#edf3ef" />
+    <meta
+      name="description"
+      content="明晰 Demo 5.0：从手机捕获、AI 分类到知识旭日、知识补全与梳逻辑的完整产品演示。"
+    />
+    <meta property="og:title" content="明晰 Demo 5.0" />
+    <meta
+      property="og:description"
+      content="收藏不是终点：把碎片内容变成按需求可调用、可推理的个人知识。"
+    />
+    <meta property="og:type" content="website" />
+    <title>明晰 Demo 5.0</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #18231e;
+        --muted: #66736c;
+        --green: #0a8f6c;
+        --green-dark: #086f55;
+        --paper: rgba(255, 255, 255, 0.78);
+        --line: rgba(24, 35, 30, 0.12);
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        color: var(--ink);
+        font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+        background:
+          radial-gradient(circle at 14% 8%, rgba(10, 143, 108, 0.20), transparent 30rem),
+          radial-gradient(circle at 88% 90%, rgba(117, 146, 129, 0.18), transparent 28rem),
+          linear-gradient(150deg, #e3ece6, #f7f9f7 55%, #dce6df);
+      }
+
+      main {
+        width: min(1040px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: clamp(56px, 10vh, 112px) 0 48px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: var(--green);
+        font-size: 13px;
+        font-weight: 750;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-family: "Songti SC", STSong, Georgia, serif;
+        font-size: clamp(48px, 8vw, 88px);
+        font-weight: 600;
+        letter-spacing: -0.05em;
+        line-height: 1;
+      }
+
+      .lead {
+        max-width: 680px;
+        margin: 26px 0 0;
+        color: var(--muted);
+        font-size: clamp(17px, 2.4vw, 21px);
+        line-height: 1.75;
+      }
+
+      .primary-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 34px 0 28px;
+      }
+
+      a { color: inherit; }
+
+      .button {
+        display: inline-flex;
+        min-height: 52px;
+        align-items: center;
+        justify-content: center;
+        padding: 0 24px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.68);
+        box-shadow: 0 12px 30px rgba(36, 59, 47, 0.08);
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 34px rgba(36, 59, 47, 0.14);
+      }
+
+      .button.primary {
+        border-color: var(--green);
+        background: var(--green);
+        color: #fff;
+      }
+
+      .button.primary:hover { background: var(--green-dark); }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 26px;
+      }
+
+      .card {
+        display: block;
+        min-height: 168px;
+        padding: 22px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--paper);
+        box-shadow: 0 18px 44px rgba(36, 59, 47, 0.07);
+        text-decoration: none;
+        backdrop-filter: blur(14px);
+        transition: transform 160ms ease, border-color 160ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        border-color: rgba(10, 143, 108, 0.42);
+      }
+
+      .card small {
+        color: var(--green);
+        font-weight: 750;
+        letter-spacing: 0.08em;
+      }
+
+      .card h2 {
+        margin: 14px 0 8px;
+        font-size: 21px;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 34px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      footer a { text-underline-offset: 3px; }
+
+      @media (max-width: 760px) {
+        main { padding-top: 56px; }
+        .grid { grid-template-columns: 1fr; }
+        .card { min-height: auto; }
+        .primary-actions .button { width: 100%; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Mingxi · Full Product Demo</p>
+      <h1>明晰 Demo 5.0</h1>
+      <p class="lead">
+        收藏不是终点。明晰把手机里的碎片内容带回知识库，交给 AI 对齐领域、由人确认用途，
+        再通过知识旭日、知识补全与梳逻辑，把“存过”变成“真正用得上”。
+      </p>
+
+      <div class="primary-actions">
+        <a class="button primary" href="https://mingxi-demo-five.zippy-coin-5950.chatgpt.site/demo">
+          进入完整 Demo
+        </a>
+        <a class="button" href="https://mingxi-demo-five.zippy-coin-5950.chatgpt.site/demo?autotour=1">
+          播放全自动演示
+        </a>
+      </div>
+
+      <section class="grid" aria-label="演示入口">
+        <a class="card" href="https://mingxi-demo-five.zippy-coin-5950.chatgpt.site/demo/phone">
+          <small>CAPTURE</small>
+          <h2>手机捕获</h2>
+          <p>直接截图，或手动选中文字后保存；捕获不中断当前阅读。</p>
+        </a>
+        <a class="card" href="https://mingxi-demo-five.zippy-coin-5950.chatgpt.site/mingxi/web">
+          <small>KNOWLEDGE</small>
+          <h2>网页工作台</h2>
+          <p>用途切片、领域旭日、待定确认、知识补全与梳逻辑线。</p>
+        </a>
+        <a class="card" href="https://github.com/noxinsun-source/mingxi-demo-5">
+          <small>SOURCE</small>
+          <h2>完整源码</h2>
+          <p>干净的可运行全栈源码、锁定依赖、演示素材与本地运行说明。</p>
+        </a>
+      </section>
+
+      <footer>
+        <span>Next.js · React · TypeScript · vinext · Cloudflare</span>
+        <a href="https://github.com/noxinsun-source/mingxi-demo-5">GitHub Repository</a>
+      </footer>
+    </main>
+  </body>
+</html>

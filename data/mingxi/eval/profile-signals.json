@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "id": "pf_angle_default_objection",
+      "statement": "没说清楚时，默认按反对意见优先重排",
+      "category": "organization",
+      "scope": "global",
+      "version": 1,
+      "status": "proposed",
+      "evidenceEvents": [
+        "2026-08-04T15:04:37.869Z · angle_used：确认角度 objection_first"
+      ],
+      "weight": 2,
+      "confirmedByHuman": false,
+      "autoActivated": false,
+      "createdAt": "2026-08-03T00:00:00+08:00"
+    }
+  ],
+  "negativeConstraints": [],
+  "signals": [
+    {
+      "kind": "angle_used",
+      "key": "angle_default_objection",
+      "detail": "确认角度 objection_first",
+      "at": "2026-08-04T15:04:37.869Z",
+      "weight": 2
+    },
+    {
+      "kind": "tag_choice",
+      "key": "prefer_structure_first",
+      "detail": "用户将用途标为「对标拆解」",
+      "at": "2026-08-06T09:03:19.614Z",
+      "weight": 1
+    }
+  ],
+  "updatedAt": "2026-08-06T09:03:19.614Z"
+}

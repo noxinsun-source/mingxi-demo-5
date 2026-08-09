@@ -1,0 +1,14 @@
+{
+  "version": "2026.08.04-v2",
+  "note": "内部弱信号，不上球、不与 C2 用途词表做一一同名同步；仅用于生成 purposeSuggestion。银标以 C2 purposeLabel 为准，userGoals 可选。",
+  "labels": [
+    { "id": "learn", "softMapsTo": ["学习理论"] },
+    { "id": "avoid", "softMapsTo": ["反例避坑"] },
+    { "id": "review", "softMapsTo": ["资料收藏", "学习理论"] },
+    { "id": "reference", "softMapsTo": ["对标拆解", "素材金句"] },
+    { "id": "share", "softMapsTo": ["素材金句"] },
+    { "id": "delegate_ai", "softMapsTo": ["待定"] },
+    { "id": "park", "softMapsTo": ["待定"] },
+    { "id": "decide", "softMapsTo": ["资料收藏"], "note": "原通往待办用途；已降级为归档后抽行动" }
+  ]
+}

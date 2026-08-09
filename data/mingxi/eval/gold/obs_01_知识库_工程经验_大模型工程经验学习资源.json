@@ -1,0 +1,118 @@
+{
+  "cardId": "real_obs_01_知识库_工程经验_大模型工程经验学习资源",
+  "corpusId": "obs_01_知识库_工程经验_大模型工程经验学习资源",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "大模型工程",
+      "本地部署"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure",
+      "resource"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn",
+      "avoid"
+    ],
+    "purposeLabel": "反例避坑",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.大模型工程.本地部署",
+        "label": "本地部署",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "大模型工程",
+          "本地部署"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "resource",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "推荐",
+        "最佳实践",
+        "实测报告",
+        "社区共识",
+        "保姆级避坑指南"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "反例避坑",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "整理大模型工程实战资源地图，聚焦本地部署、GPU推理与量化优化的最佳实践与避坑经验",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "反例避坑",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn,avoid",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:27:42.903Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

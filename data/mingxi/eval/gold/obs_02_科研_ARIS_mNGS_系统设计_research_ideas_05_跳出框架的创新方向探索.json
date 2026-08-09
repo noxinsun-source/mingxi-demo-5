@@ -1,0 +1,122 @@
+{
+  "cardId": "real_obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+  "corpusId": "obs_02_科研_ARIS_mNGS_系统设计_research_ideas_05_跳出框架的创新方向探索",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "自然语言处理",
+      "知识图谱与大模型交互"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "mixed",
+    "userGoals": [
+      "avoid",
+      "learn"
+    ],
+    "purposeLabel": "待定",
+    "stance": "do_not_imitate_failure_path",
+    "actionIntents": [
+      "extract_lesson",
+      "tag_warning",
+      "create_checklist"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.自然语言处理.知识图谱与大模型交互",
+        "label": "知识图谱与大模型交互",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "自然语言处理",
+          "知识图谱与大模型交互"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "mixed",
+      "confidence": 0.9,
+      "signals": [
+        "失败",
+        "推荐"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "avoid",
+        "confidence": 0.7
+      },
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_lesson",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "tag_warning",
+        "priority": 2,
+        "autoEligible": true
+      },
+      {
+        "id": "create_checklist",
+        "priority": 3,
+        "autoEligible": true
+      }
+    ],
+    "stance": "do_not_imitate_failure_path",
+    "purposeSuggestion": "待定",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "在现有方法失败后，探索从知识图谱、推荐系统、因果推理、信息论等多领域迁移的创新交互方式，以解决KG数据稀疏与LLM推理瓶颈问题。",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "待定",
+    "casePolarity": "mixed",
+    "functionalForm": "经验帖",
+    "stance": "do_not_imitate_failure_path",
+    "userGoalText": "avoid,learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:28:21.443Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "manual_rebalance_seed_20260804",
+    "purposeRebalance": {
+      "from": "反例避坑",
+      "to": "待定",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    }
+  }
+}

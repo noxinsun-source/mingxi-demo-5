@@ -1,0 +1,118 @@
+{
+  "cardId": "real_csdn_161266269",
+  "corpusId": "csdn_161266269",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "工程与技术科学",
+      "人工智能",
+      "Agent",
+      "Skills开发"
+    ],
+    "functionalTypes": [
+      "procedure",
+      "experience",
+      "clip"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn",
+      "park"
+    ],
+    "purposeLabel": "对标拆解",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "工程与技术科学.人工智能.Agent.Skills开发",
+        "label": "Skills开发",
+        "path": [
+          "工程与技术科学",
+          "人工智能",
+          "Agent",
+          "Skills开发"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      },
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "clip",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "最佳实践",
+        "不要让复杂的规则阻碍了你提效的步伐",
+        "一键发布",
+        "自动处理",
+        "全链路一站式"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      },
+      {
+        "id": "park",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "对标拆解",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "通过标准化、自动化和工具化手段，高效构建和管理AI Agent技能，提升开发效率与工作流自动化水平。",
+      "heuristic": "mixed"
+    }
+  },
+  "utility": {
+    "purposeLabel": "对标拆解",
+    "casePolarity": "positive",
+    "functionalForm": "教程步骤",
+    "stance": "imitate",
+    "userGoalText": "learn,park",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:26:30.360Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeSource": "silver_map"
+  }
+}

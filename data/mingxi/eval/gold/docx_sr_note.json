@@ -1,0 +1,113 @@
+{
+  "cardId": "real_docx_sr_note",
+  "corpusId": "docx_sr_note",
+  "role": "silver_as_gold",
+  "gold": {
+    "domainPath": [
+      "人文与社会科学",
+      "教育学",
+      "学习方法",
+      "记忆技巧"
+    ],
+    "functionalTypes": [
+      "experience",
+      "procedure"
+    ],
+    "polarity": "positive_exemplar",
+    "userGoals": [
+      "learn"
+    ],
+    "purposeLabel": "待定",
+    "stance": "imitate",
+    "actionIntents": [
+      "extract_playbook",
+      "summarize"
+    ],
+    "mustClarify": false
+  },
+  "envelope": {
+    "schemaVersion": "3.0",
+    "knowledgeDomain": [
+      {
+        "id": "人文与社会科学.教育学.学习方法.记忆技巧",
+        "label": "记忆技巧",
+        "path": [
+          "人文与社会科学",
+          "教育学",
+          "学习方法",
+          "记忆技巧"
+        ],
+        "confidence": 0.95
+      }
+    ],
+    "functionalTypes": [
+      {
+        "id": "experience",
+        "confidence": 0.75
+      },
+      {
+        "id": "procedure",
+        "confidence": 0.75
+      }
+    ],
+    "polarity": {
+      "id": "positive_exemplar",
+      "confidence": 0.95,
+      "signals": [
+        "有效",
+        "明晰样例",
+        "核心机制",
+        "记忆痕迹更稳"
+      ]
+    },
+    "userGoals": [
+      {
+        "id": "learn",
+        "confidence": 0.7
+      }
+    ],
+    "actionIntents": [
+      {
+        "id": "extract_playbook",
+        "priority": 1,
+        "autoEligible": true
+      },
+      {
+        "id": "summarize",
+        "priority": 2,
+        "autoEligible": true
+      }
+    ],
+    "stance": "imitate",
+    "purposeSuggestion": "待定",
+    "overallConfidence": 0.95,
+    "needsReview": false,
+    "clarifyQuestion": null,
+    "modelTrace": {
+      "role": "silver",
+      "model": "Qwen/Qwen3-VL-32B-Instruct",
+      "theme": "通过间隔重复和提取练习提升记忆效果，将概念转化为问答卡进行自测",
+      "heuristic": "positive_exemplar"
+    }
+  },
+  "utility": {
+    "purposeLabel": "待定",
+    "casePolarity": "positive",
+    "functionalForm": "经验帖",
+    "stance": "imitate",
+    "userGoalText": "learn",
+    "declaredBy": "ai_suggested"
+  },
+  "labelMeta": {
+    "annotator": "siliconflow_silver",
+    "labeledAt": "2026-08-04T14:24:07.302Z",
+    "model": "Qwen/Qwen3-VL-32B-Instruct",
+    "purposeRebalance": {
+      "from": "学习理论",
+      "to": "待定",
+      "seed": 20260804,
+      "at": "2026-08-04T14:33:10.159Z"
+    },
+    "purposeSource": "manual_rebalance_seed_20260804"
+  }
+}
