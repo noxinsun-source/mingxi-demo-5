@@ -49,7 +49,6 @@ export const PRODUCT_TOUR_STEPS: TourStep[] = [
     feature: "C1 知识领域全自动；C2 用途（学习 / 避雷 / 素材…）以人为主。短按可以不决策，标「待定」也不堵捕获。",
     say: "这是整条产品逻辑的地基——捕获要快，决策可以延后，但必须能回流确认。",
     route: "/demo",
-    target: "[data-tour=hub-principles]",
     wait: 5800,
   },
   {

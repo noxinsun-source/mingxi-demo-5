@@ -1,16 +1,36 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { startProductTour } from "@/components/mingxi/ProductDemoTour";
 import { TOUR_STEP_COUNT } from "@/lib/mingxi/demo/product-tour-script";
+import {
+  DEFAULT_TOUR_SPEED,
+  loadTourSpeed,
+  saveTourSpeed,
+  TOUR_SPEEDS,
+  type TourSpeed,
+} from "@/lib/mingxi/demo/tour-bus";
 import "@/components/mingxi/product-demo-tour.css";
 
 /**
  * 完整产品 Demo 入口（非精简 HTML）
  * - 全自动演示 + 可交互逐步指引（真手机 + 真网页，含产品逻辑旁白）
- * - /demo/phone · /mingxi/web · /mingxi/phone
+ * - /demo/phone · /mingxi/web
  */
 export default function DemoHubPage() {
+  const [tourSpeed, setTourSpeed] = useState<TourSpeed>(DEFAULT_TOUR_SPEED);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setTourSpeed(loadTourSpeed()), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const chooseSpeed = (speed: TourSpeed) => {
+    setTourSpeed(speed);
+    saveTourSpeed(speed);
+  };
+
   return (
     <main
       style={{
@@ -56,11 +76,28 @@ export default function DemoHubPage() {
         </div>
 
         <div style={{ display: "grid", gap: 14 }}>
+          <div className="mx-tour-speed-picker is-hub" role="group" aria-label="全自动演示速度">
+            <span className="mx-tour-speed-label">演示速度</span>
+            <div className="mx-tour-speed-options">
+              {TOUR_SPEEDS.map((speed) => (
+                <button
+                  key={speed}
+                  type="button"
+                  className={tourSpeed === speed ? "is-on" : ""}
+                  onClick={() => chooseSpeed(speed)}
+                  aria-pressed={tourSpeed === speed}
+                >
+                  {speed}×
+                </button>
+              ))}
+            </div>
+          </div>
+
           <div className="mx-tour-launch-grid" data-tour="hub-tour-launch">
             <button
               type="button"
               className="mx-tour-launch"
-              onClick={() => startProductTour(0, "auto")}
+              onClick={() => startProductTour(0, "auto", tourSpeed)}
             >
               <strong>▶ 全自动演示（推荐先看）</strong>
               <span>
@@ -70,7 +107,7 @@ export default function DemoHubPage() {
             <button
               type="button"
               className="mx-tour-launch is-guided"
-              onClick={() => startProductTour(0, "guided")}
+              onClick={() => startProductTour(0, "guided", tourSpeed)}
             >
               <strong>☝ 交互式逐步体验</strong>
               <span>
@@ -83,25 +120,6 @@ export default function DemoHubPage() {
             共 {TOUR_STEP_COUNT} 步：手机捕获 / 用途扇区 / 语音新建 / 微信 PDF / 网页切片 /
             领域热力与 Icicle / 全屏旭日图 / 待定确认 / 知识补全 / 梳逻辑回忆 / 评测。
           </p>
-
-          <div
-            data-tour="hub-principles"
-            style={{
-              padding: "14px 16px",
-              borderRadius: 14,
-              background: "rgba(255,252,248,.72)",
-              border: "1px solid rgba(40,32,24,.1)",
-              fontSize: "0.86rem",
-              lineHeight: 1.6,
-              color: "#3d3830",
-            }}
-          >
-            <strong style={{ color: "#0a8f6c" }}>产品原则</strong>
-            <div style={{ marginTop: 6 }}>
-              C1 知识领域 · AI 全自动 · C2 用途 · 人以主（可待定，可回流确认）· 闭环：收下 → 对齐 →
-              确认 → 切片 → 梳链
-            </div>
-          </div>
 
           <Link
             href="/demo/phone"
@@ -146,32 +164,7 @@ export default function DemoHubPage() {
             </span>
           </Link>
 
-          <Link
-            href="/mingxi/phone"
-            style={{
-              display: "block",
-              padding: "18px 20px",
-              borderRadius: 16,
-              background: "#fffcf8",
-              border: "1px solid rgba(40,32,24,.12)",
-              textDecoration: "none",
-              color: "inherit",
-            }}
-          >
-            <strong style={{ display: "block", fontSize: "1.05rem", marginBottom: 6 }}>
-              手机端（产品壳 PhoneApp）
-            </strong>
-            <span style={{ fontSize: "0.85rem", color: "#6f675c", lineHeight: 1.5 }}>
-              与网页联动的另一手机入口（用途声明 / 捕获流）
-            </span>
-          </Link>
         </div>
-
-        <p style={{ margin: "28px 0 0", fontSize: "0.78rem", color: "#6f675c", lineHeight: 1.55 }}>
-          本地启动：在项目根目录执行 <code>npm run dev</code>，浏览器打开{" "}
-          <code>http://localhost:4317/demo</code>。也可带参数直接开演：自动版
-          <code>?autotour=1</code>，交互版 <code>?guidedtour=1</code>。
-        </p>
       </div>
     </main>
   );

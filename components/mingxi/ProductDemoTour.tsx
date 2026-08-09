@@ -3,13 +3,18 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import {
+  DEFAULT_TOUR_SPEED,
   dispatchTourCmd,
+  loadTourSpeed,
   loadTourState,
   runTourCommands,
+  saveTourSpeed,
   saveTourState,
+  TOUR_SPEEDS,
   TOUR_UI_EVENT,
   type TourMode,
   type TourPersisted,
+  type TourSpeed,
   type TourUiMsg,
 } from "@/lib/mingxi/demo/tour-bus";
 import { PRODUCT_TOUR_STEPS } from "@/lib/mingxi/demo/product-tour-script";
@@ -112,6 +117,10 @@ function autoLingerMs(index: number) {
   return 800 + (index % 6) * 100;
 }
 
+function scaledMs(ms: number, speed: TourSpeed, minimum = 80) {
+  return Math.max(minimum, Math.round(ms / speed));
+}
+
 function reduceMotion() {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -149,17 +158,25 @@ function placeCard(
   return { left, top };
 }
 
-export function startProductTour(step = 0, mode: TourMode = "auto") {
+export function startProductTour(
+  step = 0,
+  mode: TourMode = "auto",
+  speed: TourSpeed = loadTourSpeed(),
+) {
   const state: TourPersisted = {
     active: true,
     step,
     paused: false,
     mode,
+    speed,
     startedAt: new Date().toISOString(),
   };
+  saveTourSpeed(speed);
   saveTourState(state);
   window.dispatchEvent(
-    new CustomEvent(TOUR_UI_EVENT, { detail: { type: "start", step, mode } satisfies TourUiMsg }),
+    new CustomEvent(TOUR_UI_EVENT, {
+      detail: { type: "start", step, mode, speed } satisfies TourUiMsg,
+    }),
   );
 }
 
@@ -170,6 +187,7 @@ export function ProductDemoTour() {
   const [step, setStep] = useState(0);
   const [paused, setPaused] = useState(false);
   const [mode, setMode] = useState<TourMode>("auto");
+  const [speed, setSpeed] = useState<TourSpeed>(DEFAULT_TOUR_SPEED);
   const [chooserOpen, setChooserOpen] = useState(false);
   const [spot, setSpot] = useState<Spot>(null);
   const [cardPos, setCardPos] = useState({ left: 24, top: 80 });
@@ -181,6 +199,7 @@ export function ProductDemoTour() {
   const stepRef = useRef(0);
   const pausedRef = useRef(false);
   const modeRef = useRef<TourMode>("auto");
+  const speedRef = useRef<TourSpeed>(DEFAULT_TOUR_SPEED);
   const pathnameRef = useRef(pathname);
   const pendingNavRef = useRef<number | null>(null);
   const applyGenRef = useRef(0);
@@ -190,8 +209,9 @@ export function ProductDemoTour() {
     stepRef.current = step;
     pausedRef.current = paused;
     modeRef.current = mode;
+    speedRef.current = speed;
     pathnameRef.current = pathname;
-  }, [step, paused, mode, pathname]);
+  }, [step, paused, mode, speed, pathname]);
 
   const clearTimers = useCallback(() => {
     if (timerRef.current) {
@@ -207,6 +227,7 @@ export function ProductDemoTour() {
       step: next.step ?? cur?.step ?? 0,
       paused: next.paused ?? cur?.paused ?? false,
       mode: next.mode ?? cur?.mode ?? modeRef.current,
+      speed: next.speed ?? cur?.speed ?? speedRef.current,
       startedAt: cur?.startedAt || new Date().toISOString(),
     };
     saveTourState(next.active ? state : null);
@@ -286,11 +307,13 @@ export function ProductDemoTour() {
       setVeil(false);
       await waitForRouteReady(s.route);
       if (gen !== applyGenRef.current) return;
-      if (s.settleMs) await new Promise((r) => setTimeout(r, s.settleMs));
+      if (s.settleMs) {
+        await new Promise((r) => setTimeout(r, scaledMs(s.settleMs!, speedRef.current, 120)));
+      }
       if (gen !== applyGenRef.current) return;
-      await runTourCommands(s.enter, 320);
+      await runTourCommands(s.enter, scaledMs(320, speedRef.current, 100));
       if (gen !== applyGenRef.current) return;
-      await new Promise((r) => setTimeout(r, 200));
+      await new Promise((r) => setTimeout(r, scaledMs(200, speedRef.current, 70)));
       if (gen !== applyGenRef.current) return;
       highlight(s.target);
       if (modeRef.current === "guided") return;
@@ -299,7 +322,7 @@ export function ProductDemoTour() {
       timerRef.current = window.setTimeout(() => {
         if (pausedRef.current) return;
         void goToStepRef.current(index + 1);
-      }, autoLingerMs(index));
+      }, scaledMs(autoLingerMs(index), speedRef.current, 350));
     },
     [clearTimers, highlight, stopTour],
   );
@@ -353,6 +376,9 @@ export function ProductDemoTour() {
     let autoStartTimer: number | null = null;
     const restoreTimer = window.setTimeout(() => {
       const st = loadTourState();
+      const restoredSpeed = st?.speed ?? loadTourSpeed();
+      setSpeed(restoredSpeed);
+      speedRef.current = restoredSpeed;
       if (st?.active) {
         setActive(true);
         setStep(st.step);
@@ -393,10 +419,14 @@ export function ProductDemoTour() {
         const nextMode = msg.mode ?? "auto";
         setMode(nextMode);
         modeRef.current = nextMode;
+        const nextSpeed = msg.speed ?? loadTourSpeed();
+        setSpeed(nextSpeed);
+        speedRef.current = nextSpeed;
+        saveTourSpeed(nextSpeed);
         const i = msg.step ?? 0;
         setStep(i);
         stepRef.current = i;
-        persist({ active: true, step: i, paused: false, mode: nextMode });
+        persist({ active: true, step: i, paused: false, mode: nextMode, speed: nextSpeed });
         void goToStep(i);
       } else if (msg.type === "stop") {
         stopTour();
@@ -407,7 +437,10 @@ export function ProductDemoTour() {
         if (msg.paused) clearTimers();
         else if (modeRef.current === "auto") {
           clearTimers();
-          timerRef.current = window.setTimeout(() => void goToStep(stepRef.current + 1), 800);
+          timerRef.current = window.setTimeout(
+            () => void goToStep(stepRef.current + 1),
+            scaledMs(800, speedRef.current, 350),
+          );
         }
       } else if (msg.type === "goto") {
         void goToStep(msg.step);
@@ -439,6 +472,20 @@ export function ProductDemoTour() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [active, chooserOpen, stopTour]);
+
+  const changeSpeed = (nextSpeed: TourSpeed) => {
+    setSpeed(nextSpeed);
+    speedRef.current = nextSpeed;
+    saveTourSpeed(nextSpeed);
+    if (!active) return;
+    persist({ active: true, step: stepRef.current, paused: pausedRef.current, speed: nextSpeed });
+    if (modeRef.current !== "auto" || pausedRef.current || !timerRef.current) return;
+    clearTimers();
+    timerRef.current = window.setTimeout(
+      () => void goToStepRef.current(stepRef.current + 1),
+      scaledMs(autoLingerMs(stepRef.current), nextSpeed, 350),
+    );
+  };
 
   if (!active) {
     const showLauncher = pathname !== "/demo";
@@ -475,12 +522,28 @@ export function ProductDemoTour() {
               <p className="mx-tour-chooser-copy">
                 共 {PRODUCT_TOUR_STEPS.length} 步，覆盖手机捕获、网页整理、旭日图、知识补全与梳逻辑。两种模式都可随时跳过或退出。
               </p>
+              <div className="mx-tour-speed-picker" role="group" aria-label="全自动演示速度">
+                <span className="mx-tour-speed-label">自动演示速度</span>
+                <div className="mx-tour-speed-options">
+                  {TOUR_SPEEDS.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      className={speed === option ? "is-on" : ""}
+                      onClick={() => changeSpeed(option)}
+                      aria-pressed={speed === option}
+                    >
+                      {option}×
+                    </button>
+                  ))}
+                </div>
+              </div>
               <div className="mx-tour-chooser-grid">
-                <button type="button" onClick={() => startProductTour(0, "auto")}>
+                <button type="button" onClick={() => startProductTour(0, "auto", speed)}>
                   <b>▶ 全自动演示</b>
                   <span>自动切页、聚光并播放功能，适合先完整看一遍。</span>
                 </button>
-                <button type="button" onClick={() => startProductTour(0, "guided")}>
+                <button type="button" onClick={() => startProductTour(0, "guided", speed)}>
                   <b>☝ 交互式逐步体验</b>
                   <span>页面保持可操作；每一步亲手点击，再确认进入下一步。</span>
                 </button>
@@ -557,6 +620,22 @@ export function ProductDemoTour() {
         </div>
         <h3 id="mx-tour-title">{cardCopy.title}</h3>
         <p className="mx-tour-brief">{cardCopy.description}</p>
+        {mode === "auto" ? (
+          <label className="mx-tour-speed-inline">
+            <span>速度</span>
+            <select
+              value={speed}
+              onChange={(event) => changeSpeed(Number(event.target.value) as TourSpeed)}
+              aria-label="切换全自动演示速度"
+            >
+              {TOUR_SPEEDS.map((option) => (
+                <option key={option} value={option}>
+                  {option}×
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
         <div className="mx-tour-phases" aria-label="演示模块进度">
           {phaseLabels.map((p, index) => {
             const on = index === activePhase;
@@ -583,7 +662,10 @@ export function ProductDemoTour() {
                 if (next) clearTimers();
                 else {
                   clearTimers();
-                  timerRef.current = window.setTimeout(() => void goToStep(step + 1), 700);
+                  timerRef.current = window.setTimeout(
+                    () => void goToStep(step + 1),
+                    scaledMs(700, speedRef.current, 350),
+                  );
                 }
               }}
             >

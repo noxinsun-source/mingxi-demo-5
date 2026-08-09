@@ -141,6 +141,27 @@
   -webkit-line-clamp: 2;
 }
 
+.mx-tour-speed-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: -2px 0 10px;
+  color: #6f675c;
+  font-size: 11px;
+}
+
+.mx-tour-speed-inline select {
+  min-width: 70px;
+  height: 28px;
+  padding: 0 26px 0 9px;
+  border: 1px solid rgba(40, 32, 24, 0.16);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #27231e;
+  font: inherit;
+  cursor: pointer;
+}
+
 .mx-tour-pain,
 .mx-tour-feature {
   margin: 0 0 8px;
@@ -419,6 +440,56 @@
   line-height: 1.65;
 }
 
+.mx-tour-speed-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 18px;
+  padding: 10px 12px;
+  border: 1px solid rgba(40, 32, 24, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.mx-tour-speed-picker.is-hub {
+  margin: 0;
+  background: rgba(255, 252, 248, 0.72);
+}
+
+.mx-tour-speed-label {
+  flex: 0 0 auto;
+  color: #5f574e;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.mx-tour-speed-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.mx-tour-speed-options button {
+  min-width: 42px;
+  height: 30px;
+  padding: 0 9px;
+  border: 1px solid rgba(40, 32, 24, 0.14);
+  border-radius: 9px;
+  background: #fff;
+  color: #5f574e;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.mx-tour-speed-options button.is-on {
+  border-color: #0a8f6c;
+  background: #0a8f6c;
+  color: #fff;
+  font-weight: 700;
+}
+
 .mx-tour-chooser-grid,
 .mx-tour-launch-grid {
   display: grid;
@@ -538,6 +609,15 @@
   .mx-tour-help-launcher {
     right: 12px;
     bottom: 12px;
+  }
+
+  .mx-tour-speed-picker {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mx-tour-speed-options {
+    justify-content: flex-start;
   }
 }
 
